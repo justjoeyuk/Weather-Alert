@@ -1,0 +1,6 @@
+//
+//  Staging.xcconfig
+//
+
+OTHER_CFLAGS = -DSTAGING=1
+CONFIGURATION_PLIST = StagingConfig
