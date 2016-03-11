@@ -48,6 +48,7 @@ class WeatherCardTableViewCell : BaseTableViewCell {
     
     override func setup() {
         self.selectionStyle = .None
+        self.backgroundColor = UIColor.whiteColor()
         self.clipsToBounds = true
         self.contentView.clipsToBounds = true
         
@@ -120,8 +121,8 @@ class WeatherCardTableViewCell : BaseTableViewCell {
     
     // MARK: Update Cell
     
-    func updateWithModel(model:AnyObject) {
-        
+    func updateWithModel(model:AnyObject!) {
+        animatedTurbineView.applyRotationAnimation(4)
     }
     
 }
