@@ -27,9 +27,12 @@ class WeatherCardTableViewCell : BaseTableViewCell {
         }
         set (newFrame) {
             var f = newFrame
-            f.origin.x += 10; f.origin.y += 10; f.size.width -= 2 * 10; f.size.height -= 10
+            //f.origin.x += 10; 
+            f.origin.y += 10;
+            //f.size.width -= 2 * 10; 
+            f.size.height -= 10
             
-            self.layer.cornerRadius = f.width / 30
+            //self.layer.cornerRadius = f.width / 30
             super.frame = f
         }
     }
