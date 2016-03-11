@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class HomeView : BaseView {
     
     let weatherCardTableView = UITableView()
