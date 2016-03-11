@@ -34,6 +34,15 @@ class HomeView : BaseView {
 extension HomeView {
     
     override func setupConstraints() {
+        setupWeatherCardTableViewConstraints()
+        setupAddCityButtonConstraints()
+    }
+    
+    private func setupWeatherCardTableViewConstraints() {
+        
+    }
+    
+    private func setupAddCityButtonConstraints() {
         
     }
     

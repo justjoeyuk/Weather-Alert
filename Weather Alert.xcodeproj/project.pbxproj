@@ -26,6 +26,7 @@
 		EF42502B1C9228010076DC70 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF42502A1C9228010076DC70 /* HomeView.swift */; };
 		EF42502E1C931E9D0076DC70 /* WeatherCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF42502D1C931E9D0076DC70 /* WeatherCardTableViewCell.swift */; };
 		EF4250301C931F3E0076DC70 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF42502F1C931F3E0076DC70 /* BaseTableViewCell.swift */; };
+		EF4250321C93266D0076DC70 /* WeatherCardTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4250311C93266D0076DC70 /* WeatherCardTableViewDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		EF42502A1C9228010076DC70 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		EF42502D1C931E9D0076DC70 /* WeatherCardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherCardTableViewCell.swift; sourceTree = "<group>"; };
 		EF42502F1C931F3E0076DC70 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		EF4250311C93266D0076DC70 /* WeatherCardTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherCardTableViewDataSource.swift; sourceTree = "<group>"; };
 		EF73FDB71C62A2540075D168 /* Weather Alert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Weather Alert.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -172,6 +174,7 @@
 		EF4250251C9227280076DC70 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				EF4250311C93266D0076DC70 /* WeatherCardTableViewDataSource.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 				EF0570F51C791CDC00B1D105 /* BaseView.swift in Sources */,
 				EF42502B1C9228010076DC70 /* HomeView.swift in Sources */,
 				EF0570F31C791CDC00B1D105 /* AppDelegate.swift in Sources */,
+				EF4250321C93266D0076DC70 /* WeatherCardTableViewDataSource.swift in Sources */,
 				EF0570F61C791CDC00B1D105 /* Configuration.swift in Sources */,
 				EF4250301C931F3E0076DC70 /* BaseTableViewCell.swift in Sources */,
 				EF0570F41C791CDC00B1D105 /* BaseVC.swift in Sources */,
