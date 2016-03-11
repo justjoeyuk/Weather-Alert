@@ -15,4 +15,8 @@ class BaseVC: UIViewController {
         self.init()
     }
     
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
+    }
+    
 }

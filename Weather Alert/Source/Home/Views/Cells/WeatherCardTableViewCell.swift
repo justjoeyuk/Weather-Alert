@@ -13,7 +13,7 @@ class WeatherCardTableViewCell : BaseTableViewCell {
     
     let backgroundImageView = UIImageView()
     let animatedTurbineView = UIImageView()
-    let windDirectionView = UIView()
+    let windDirectionView = UIImageView()
     
     let infoView = UIView()
     let cityLabel = UILabel()
@@ -27,13 +27,9 @@ class WeatherCardTableViewCell : BaseTableViewCell {
         }
         set (newFrame) {
             var f = newFrame
-            f.origin.x += 10;
-            f.origin.y += 10
-            f.size.width -= 2 * 10;
-            f.size.height -= 10
+            f.origin.x += 10; f.origin.y += 10; f.size.width -= 2 * 10; f.size.height -= 10
             
             self.layer.cornerRadius = f.width / 30
-            self.contentView.layer.cornerRadius = f.width / 30
             super.frame = f
         }
     }
@@ -67,6 +63,7 @@ class WeatherCardTableViewCell : BaseTableViewCell {
         backgroundImageView.image = UIImage.Asset.Mock_Location.image
         backgroundImageView.clipsToBounds = true
         backgroundImageView.contentMode = .ScaleAspectFill
+        backgroundImageView.opaque = true
         
         let overlay = UIView()
         overlay.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.6)
@@ -91,24 +88,37 @@ class WeatherCardTableViewCell : BaseTableViewCell {
     
     private func setupAnimatedTurbineView() {
         animatedTurbineView.image = UIImage.Asset.Turbine.image
+        animatedTurbineView.opaque = true
         animatedTurbineView.contentMode = .ScaleAspectFit
         
         infoView.addSubview(animatedTurbineView)
     }
     
     private func setupWindDirectionView() {
+        windDirectionView.opaque = true
+        windDirectionView.image = UIImage.Asset.Arrow.image
         
+        let transform = CGAffineTransformRotate(CGAffineTransformIdentity, 4);
+        self.windDirectionView.transform = transform;
+        
+        infoView.addSubview(windDirectionView)
+    }
+    
+    private func setupWindDirectionLabel() {
+        windDirectionLabel.text = "SW"
+        
+        windDirectionLabel.applyAutoSize().applyOxygenFont(12).applyColor(UIColor.whiteColor()).centered
+        windDirectionLabel.numberOfLines = 1
+        
+        infoView.addSubview(windDirectionLabel)
     }
     
     private func setupWindSpeedLabel() {
         windSpeedLabel.text = "20mph"
-        windSpeedLabel.applyOxygenFont(14).applyColor(UIColor.whiteColor())
+        windSpeedLabel.applyAutoSize().applyOxygenFont(12).applyColor(UIColor.whiteColor()).centered
+        windSpeedLabel.numberOfLines = 1
         
         infoView.addSubview(windSpeedLabel)
-    }
-    
-    private func setupWindDirectionLabel() {
-        
     }
     
     private func setupWindStrengthLabel() {
@@ -166,27 +176,37 @@ extension WeatherCardTableViewCell {
         }
     }
     
-    private func setupAnimatedTurbineViewConstraints() {
-        self.animatedTurbineView.snp_makeConstraints { make in
-            make.bottom.equalTo(self.windSpeedLabel.snp_top)
-            make.centerX.equalTo(self.windSpeedLabel)
-            make.size.equalTo(32)
+    private func setupWindDirectionViewConstraints() {
+        windDirectionView.snp_makeConstraints { make in
+            make.size.equalTo(25)
+            make.left.equalTo(self.animatedTurbineView.snp_right).offset(20)
+            make.top.equalTo(self.animatedTurbineView)
         }
     }
     
-    private func setupWindDirectionViewConstraints() {
-        
+    
+    private func setupWindDirectionLabelConstraints() {
+        windDirectionLabel.snp_makeConstraints { make in
+            make.centerX.equalTo(self.windDirectionView)
+            make.bottom.equalTo(self.infoView).offset(-5)
+            make.width.equalTo(self.windDirectionView)
+        }
+    }
+    
+    private func setupAnimatedTurbineViewConstraints() {
+        self.animatedTurbineView.snp_makeConstraints { make in
+            make.bottom.equalTo(self.windSpeedLabel.snp_top)
+            make.left.equalTo(self.infoView).offset(10)
+            make.size.equalTo(32)
+        }
     }
     
     private func setupWindSpeedLabelConstraints() {
         self.windSpeedLabel.snp_makeConstraints { make in
             make.bottom.equalTo(self.infoView).offset(-5)
-            make.left.equalTo(self.infoView).offset(10)
+            make.centerX.equalTo(self.animatedTurbineView)
+            make.width.equalTo(self.animatedTurbineView)
         }
-    }
-    
-    private func setupWindDirectionLabelConstraints() {
-        
     }
     
     private func setupWindStrengthLabelConstraints() {

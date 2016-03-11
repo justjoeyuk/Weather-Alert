@@ -20,11 +20,13 @@ class HomeView : BaseView {
     }
     
     private func setupWeatherCardTableView() {
-        weatherCardTableView.backgroundColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1)
+        weatherCardTableView.backgroundColor = UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
         addSubview(weatherCardTableView)
     }
     
     private func setupAddCityButton() {
+        addCityButton.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.8)
+        addCityButton.setTitle("+ Add City", forState: .Normal)
         addSubview(addCityButton)
     }
     
@@ -41,9 +43,11 @@ extension HomeView {
     }
     
     private func setupWeatherCardTableViewConstraints() {
+        weatherCardTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom:75, right: 0)
+        
         weatherCardTableView.snp_makeConstraints { make in
             make.top.left.right.equalTo(self)
-            make.bottom.equalTo(self.addCityButton.snp_top)
+            make.bottom.equalTo(self)
         }
     }
     

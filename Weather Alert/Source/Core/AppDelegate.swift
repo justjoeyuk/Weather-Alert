@@ -19,7 +19,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let appFrame = UIScreen.mainScreen().bounds
         window = UIWindow(frame: appFrame)
         
-        print(UIFont.fontNamesForFamilyName("Oxygen"))
+        let shadow = NSShadow()
+        shadow.shadowColor = UIColor.blackColor()
+        shadow.shadowOffset = CGSizeMake(-1, 0)
+        
+        let titleAttr = [NSForegroundColorAttributeName:UIColor.whiteColor(),
+                         NSShadowAttributeName:shadow]
+        UINavigationBar.appearance().titleTextAttributes = titleAttr
+        UINavigationBar.appearance().barStyle = .Black
         
         let homeController = HomeViewController()
         let navigationController = UINavigationController(rootViewController: homeController)
