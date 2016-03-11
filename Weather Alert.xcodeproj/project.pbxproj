@@ -27,6 +27,10 @@
 		EF42502E1C931E9D0076DC70 /* WeatherCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF42502D1C931E9D0076DC70 /* WeatherCardTableViewCell.swift */; };
 		EF4250301C931F3E0076DC70 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF42502F1C931F3E0076DC70 /* BaseTableViewCell.swift */; };
 		EF4250321C93266D0076DC70 /* WeatherCardTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4250311C93266D0076DC70 /* WeatherCardTableViewDataSource.swift */; };
+		EF4250361C9332480076DC70 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4250351C9332480076DC70 /* Images.swift */; };
+		EF42503A1C935A3F0076DC70 /* Oxygen-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF4250381C935A3F0076DC70 /* Oxygen-Bold.ttf */; };
+		EF42503B1C935A3F0076DC70 /* Oxygen-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF4250391C935A3F0076DC70 /* Oxygen-Regular.ttf */; };
+		EF42503E1C936AA20076DC70 /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF42503D1C936AA20076DC70 /* UILabel+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +55,10 @@
 		EF42502D1C931E9D0076DC70 /* WeatherCardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherCardTableViewCell.swift; sourceTree = "<group>"; };
 		EF42502F1C931F3E0076DC70 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		EF4250311C93266D0076DC70 /* WeatherCardTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherCardTableViewDataSource.swift; sourceTree = "<group>"; };
+		EF4250351C9332480076DC70 /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		EF4250381C935A3F0076DC70 /* Oxygen-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oxygen-Bold.ttf"; sourceTree = "<group>"; };
+		EF4250391C935A3F0076DC70 /* Oxygen-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oxygen-Regular.ttf"; sourceTree = "<group>"; };
+		EF42503D1C936AA20076DC70 /* UILabel+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
 		EF73FDB71C62A2540075D168 /* Weather Alert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Weather Alert.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -109,6 +117,8 @@
 		EF0570D51C791CDC00B1D105 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				EF4250341C9332420076DC70 /* Constants */,
+				EF4250371C935A3F0076DC70 /* Fonts */,
 				EF0570D61C791CDC00B1D105 /* Assets.xcassets */,
 				EF0570D71C791CDC00B1D105 /* LaunchScreen.storyboard */,
 			);
@@ -129,6 +139,7 @@
 			children = (
 				EF0570DB1C791CDC00B1D105 /* AppDelegate.swift */,
 				EF0570DC1C791CDC00B1D105 /* Components */,
+				EF42503C1C936A8E0076DC70 /* Extensions */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -196,6 +207,31 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		EF4250341C9332420076DC70 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				EF4250351C9332480076DC70 /* Images.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		EF4250371C935A3F0076DC70 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				EF4250381C935A3F0076DC70 /* Oxygen-Bold.ttf */,
+				EF4250391C935A3F0076DC70 /* Oxygen-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		EF42503C1C936A8E0076DC70 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EF42503D1C936AA20076DC70 /* UILabel+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		EF73FDAE1C62A2540075D168 = {
 			isa = PBXGroup;
 			children = (
@@ -224,6 +260,7 @@
 				EF73FDB41C62A2540075D168 /* Frameworks */,
 				EF73FDB51C62A2540075D168 /* Resources */,
 				EFFE09971C641F730053AD56 /* ShellScript */,
+				EF4250331C9332200076DC70 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -273,7 +310,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF0570EF1C791CDC00B1D105 /* Release.xcconfig in Resources */,
+				EF42503A1C935A3F0076DC70 /* Oxygen-Bold.ttf in Resources */,
 				EF0570F01C791CDC00B1D105 /* Staging.xcconfig in Resources */,
+				EF42503B1C935A3F0076DC70 /* Oxygen-Regular.ttf in Resources */,
 				EF0570EA1C791CDC00B1D105 /* LocalConfig.plist in Resources */,
 				EF0570EB1C791CDC00B1D105 /* ProductionConfig.plist in Resources */,
 				EF0570F11C791CDC00B1D105 /* Assets.xcassets in Resources */,
@@ -288,6 +327,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		EF4250331C9332200076DC70 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftgen >/dev/null; then\nswiftgen images \"$PROJECT_DIR/Weather Alert/Resources\" --output \"$PROJECT_DIR/Weather Alert/Resources/Constants/Images.swift\"\nelse\necho \"SwiftGen not installed, download it from https://github.com/AliSoftware/SwiftGen\"\nfi";
+		};
 		EFFE09971C641F730053AD56 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 12;
@@ -309,9 +361,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF42503E1C936AA20076DC70 /* UILabel+Extensions.swift in Sources */,
 				EF0570F51C791CDC00B1D105 /* BaseView.swift in Sources */,
 				EF42502B1C9228010076DC70 /* HomeView.swift in Sources */,
 				EF0570F31C791CDC00B1D105 /* AppDelegate.swift in Sources */,
+				EF4250361C9332480076DC70 /* Images.swift in Sources */,
 				EF4250321C93266D0076DC70 /* WeatherCardTableViewDataSource.swift in Sources */,
 				EF0570F61C791CDC00B1D105 /* Configuration.swift in Sources */,
 				EF4250301C931F3E0076DC70 /* BaseTableViewCell.swift in Sources */,

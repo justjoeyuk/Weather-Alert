@@ -19,6 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let appFrame = UIScreen.mainScreen().bounds
         window = UIWindow(frame: appFrame)
         
+        print(UIFont.fontNamesForFamilyName("Oxygen"))
+        
         let homeController = HomeViewController()
         let navigationController = UINavigationController(rootViewController: homeController)
         

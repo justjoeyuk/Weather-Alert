@@ -23,6 +23,8 @@ class HomeViewController : BaseVC {
     override func viewDidLoad() {
         self.title = "Home"
         
+        homeView.weatherCardTableView.registerClass(WeatherCardTableViewCell.self, forCellReuseIdentifier: "WeatherCardCell")
+        homeView.weatherCardTableView.separatorStyle = .None
         homeView.weatherCardTableView.dataSource = weatherCardDatasource
         homeView.weatherCardTableView.delegate = self
     }
@@ -32,6 +34,12 @@ class HomeViewController : BaseVC {
 
 extension HomeViewController : UITableViewDelegate {
     
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 200
+    }
     
+    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 200
+    }
     
 }
