@@ -32,7 +32,23 @@
 		EF42503B1C935A3F0076DC70 /* Oxygen-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF4250391C935A3F0076DC70 /* Oxygen-Regular.ttf */; };
 		EF42503E1C936AA20076DC70 /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF42503D1C936AA20076DC70 /* UILabel+Extensions.swift */; };
 		EF4250401C936EE10076DC70 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF42503F1C936EE10076DC70 /* UIView+Extensions.swift */; };
+		EF4250481C9397480076DC70 /* MathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4250471C9397480076DC70 /* MathTests.swift */; };
+		EF4250531C9398750076DC70 /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4250521C9398750076DC70 /* Math.swift */; };
+		EFC4A2F61C94644F00ADEDA7 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC4A2F51C94644F00ADEDA7 /* Weather.swift */; };
+		EFC4A2F81C94648E00ADEDA7 /* WeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC4A2F71C94648E00ADEDA7 /* WeatherTests.swift */; };
+		EFC4A2FA1C946ABC00ADEDA7 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC4A2F91C946ABC00ADEDA7 /* String+Extensions.swift */; };
+		EFC4A2FB1C946C4800ADEDA7 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC4A2F91C946ABC00ADEDA7 /* String+Extensions.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EF42504A1C9397480076DC70 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EF73FDAF1C62A2540075D168 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EF73FDB61C62A2540075D168;
+			remoteInfo = "Weather Alert";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		EF0570CB1C791CDC00B1D105 /* Local.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Local.xcconfig; sourceTree = "<group>"; };
@@ -61,10 +77,24 @@
 		EF4250391C935A3F0076DC70 /* Oxygen-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oxygen-Regular.ttf"; sourceTree = "<group>"; };
 		EF42503D1C936AA20076DC70 /* UILabel+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
 		EF42503F1C936EE10076DC70 /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		EF4250451C9397480076DC70 /* Weather Alert Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Weather Alert Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF4250471C9397480076DC70 /* MathTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathTests.swift; sourceTree = "<group>"; };
+		EF4250491C9397480076DC70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF4250521C9398750076DC70 /* Math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
 		EF73FDB71C62A2540075D168 /* Weather Alert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Weather Alert.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFC4A2F51C94644F00ADEDA7 /* Weather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		EFC4A2F71C94648E00ADEDA7 /* WeatherTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherTests.swift; sourceTree = "<group>"; };
+		EFC4A2F91C946ABC00ADEDA7 /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		EF4250421C9397480076DC70 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EF73FDB41C62A2540075D168 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -142,6 +172,7 @@
 				EF0570DB1C791CDC00B1D105 /* AppDelegate.swift */,
 				EF0570DC1C791CDC00B1D105 /* Components */,
 				EF42503C1C936A8E0076DC70 /* Extensions */,
+				EF4250511C9398620076DC70 /* Utilities */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -229,16 +260,37 @@
 		EF42503C1C936A8E0076DC70 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				EFC4A2F91C946ABC00ADEDA7 /* String+Extensions.swift */,
 				EF42503F1C936EE10076DC70 /* UIView+Extensions.swift */,
 				EF42503D1C936AA20076DC70 /* UILabel+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		EF4250461C9397480076DC70 /* Weather Alert Tests */ = {
+			isa = PBXGroup;
+			children = (
+				EF4250491C9397480076DC70 /* Info.plist */,
+				EF4250471C9397480076DC70 /* MathTests.swift */,
+				EFC4A2F71C94648E00ADEDA7 /* WeatherTests.swift */,
+			);
+			path = "Weather Alert Tests";
+			sourceTree = "<group>";
+		};
+		EF4250511C9398620076DC70 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				EF4250521C9398750076DC70 /* Math.swift */,
+				EFC4A2F51C94644F00ADEDA7 /* Weather.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		EF73FDAE1C62A2540075D168 = {
 			isa = PBXGroup;
 			children = (
 				EF0570C91C791CDC00B1D105 /* Weather Alert */,
+				EF4250461C9397480076DC70 /* Weather Alert Tests */,
 				EF73FDB81C62A2540075D168 /* Products */,
 				A6D667F70248952E7DF87DA4 /* Frameworks */,
 			);
@@ -248,6 +300,7 @@
 			isa = PBXGroup;
 			children = (
 				EF73FDB71C62A2540075D168 /* Weather Alert.app */,
+				EF4250451C9397480076DC70 /* Weather Alert Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -255,6 +308,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		EF4250441C9397480076DC70 /* Weather Alert Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF42504C1C9397480076DC70 /* Build configuration list for PBXNativeTarget "Weather Alert Tests" */;
+			buildPhases = (
+				EF4250411C9397480076DC70 /* Sources */,
+				EF4250421C9397480076DC70 /* Frameworks */,
+				EF4250431C9397480076DC70 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EF42504B1C9397480076DC70 /* PBXTargetDependency */,
+			);
+			name = "Weather Alert Tests";
+			productName = "Weather Alert Tests";
+			productReference = EF4250451C9397480076DC70 /* Weather Alert Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		EF73FDB61C62A2540075D168 /* Weather Alert */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = EF73FDC91C62A2540075D168 /* Build configuration list for PBXNativeTarget "Weather Alert" */;
@@ -284,6 +355,10 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = JustJoey;
 				TargetAttributes = {
+					EF4250441C9397480076DC70 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = EF73FDB61C62A2540075D168;
+					};
 					EF73FDB61C62A2540075D168 = {
 						CreatedOnToolsVersion = 7.2;
 					};
@@ -303,11 +378,19 @@
 			projectRoot = "";
 			targets = (
 				EF73FDB61C62A2540075D168 /* Weather Alert */,
+				EF4250441C9397480076DC70 /* Weather Alert Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		EF4250431C9397480076DC70 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EF73FDB51C62A2540075D168 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -360,6 +443,16 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		EF4250411C9397480076DC70 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFC4A2F81C94648E00ADEDA7 /* WeatherTests.swift in Sources */,
+				EFC4A2FB1C946C4800ADEDA7 /* String+Extensions.swift in Sources */,
+				EF4250481C9397480076DC70 /* MathTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EF73FDB31C62A2540075D168 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -367,6 +460,9 @@
 				EF42503E1C936AA20076DC70 /* UILabel+Extensions.swift in Sources */,
 				EF0570F51C791CDC00B1D105 /* BaseView.swift in Sources */,
 				EF42502B1C9228010076DC70 /* HomeView.swift in Sources */,
+				EF4250531C9398750076DC70 /* Math.swift in Sources */,
+				EFC4A2FA1C946ABC00ADEDA7 /* String+Extensions.swift in Sources */,
+				EFC4A2F61C94644F00ADEDA7 /* Weather.swift in Sources */,
 				EF0570F31C791CDC00B1D105 /* AppDelegate.swift in Sources */,
 				EF4250361C9332480076DC70 /* Images.swift in Sources */,
 				EF4250401C936EE10076DC70 /* UIView+Extensions.swift in Sources */,
@@ -382,6 +478,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		EF42504B1C9397480076DC70 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EF73FDB61C62A2540075D168 /* Weather Alert */;
+			targetProxy = EF42504A1C9397480076DC70 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		EF0570D71C791CDC00B1D105 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -394,6 +498,92 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		EF42504D1C9397480076DC70 /* Local */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Weather Alert Tests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.justjoey.Weather-Alert-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Weather Alert.app/Weather Alert";
+			};
+			name = Local;
+		};
+		EF42504E1C9397480076DC70 /* Staging */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Weather Alert Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.justjoey.Weather-Alert-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Weather Alert.app/Weather Alert";
+			};
+			name = Staging;
+		};
+		EF42504F1C9397480076DC70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Weather Alert Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.justjoey.Weather-Alert-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Weather Alert.app/Weather Alert";
+			};
+			name = Release;
+		};
+		EF4250501C9397480076DC70 /* Production */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Weather Alert Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.justjoey.Weather-Alert-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Weather Alert.app/Weather Alert";
+			};
+			name = Production;
+		};
 		EF73FDC71C62A2540075D168 /* Local */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EF0570CB1C791CDC00B1D105 /* Local.xcconfig */;
@@ -484,6 +674,7 @@
 			baseConfigurationReference = EF0570CB1C791CDC00B1D105 /* Local.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -507,7 +698,9 @@
 			baseConfigurationReference = EF0570D31C791CDC00B1D105 /* Release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = NO;
+				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -576,6 +769,7 @@
 			baseConfigurationReference = EF0570D41C791CDC00B1D105 /* Staging.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -638,7 +832,9 @@
 			baseConfigurationReference = EF0570D21C791CDC00B1D105 /* Production.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEFINES_MODULE = YES;
 				ENABLE_BITCODE = NO;
+				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -659,6 +855,17 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		EF42504C1C9397480076DC70 /* Build configuration list for PBXNativeTarget "Weather Alert Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF42504D1C9397480076DC70 /* Local */,
+				EF42504E1C9397480076DC70 /* Staging */,
+				EF42504F1C9397480076DC70 /* Release */,
+				EF4250501C9397480076DC70 /* Production */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		EF73FDB21C62A2540075D168 /* Build configuration list for PBXProject "Weather Alert" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

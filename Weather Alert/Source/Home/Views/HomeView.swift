@@ -20,7 +20,7 @@ class HomeView : BaseView {
     }
     
     private func setupWeatherCardTableView() {
-        weatherCardTableView.backgroundColor = UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
+        weatherCardTableView.backgroundColor = UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 1)
         addSubview(weatherCardTableView)
     }
     
