@@ -20,12 +20,12 @@ class HomeView : BaseView {
     }
     
     private func setupWeatherCardTableView() {
-        weatherCardTableView.backgroundColor = UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 1)
+        weatherCardTableView.backgroundColor = UIColor.darkBackgroundColor()
         addSubview(weatherCardTableView)
     }
     
     private func setupAddCityButton() {
-        addCityButton.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.8)
+        addCityButton.backgroundColor = UIColor.darkTransparentColor()
         addCityButton.setTitle("+ Add City", forState: .Normal)
         addSubview(addCityButton)
     }

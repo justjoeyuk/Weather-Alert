@@ -66,7 +66,7 @@ class WeatherCardTableViewCell : BaseTableViewCell {
         backgroundImageView.opaque = true
         
         let overlay = UIView()
-        overlay.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.6)
+        overlay.backgroundColor = UIColor.darkTransparentColor()
         
         backgroundImageView.addSubview(overlay)
         overlay.snp_makeConstraints { make in make.edges.equalTo(self.backgroundImageView) }

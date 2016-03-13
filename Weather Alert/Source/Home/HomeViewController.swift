@@ -43,7 +43,11 @@ extension HomeViewController : UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.navigationController?.pushViewController(HomeViewController(), animated: true)
+        let pvc = WeatherPageViewController(transitionStyle: .Scroll, navigationOrientation: .Horizontal, options: nil)
+        pvc.loadInitialViewController(indexPath.row)
+        pvc.title = "Forecast".localized
+        
+        self.navigationController?.pushViewController(pvc, animated: true)
     }
     
 }
