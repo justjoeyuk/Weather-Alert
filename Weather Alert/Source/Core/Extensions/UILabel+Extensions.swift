@@ -12,6 +12,7 @@ import UIKit
 extension UILabel {
     
     var centered: UILabel { self.textAlignment = .Center; return self }
+    var oneLine: UILabel { self.numberOfLines = 1; return self }
     
     func applyOxygenFont(fontSize:CGFloat = 100) -> UILabel {
         self.font = UIFont(name: "Oxygen-Regular", size: fontSize);
@@ -27,6 +28,6 @@ extension UILabel {
         return self
     }
     
-    func applyColor(color:UIColor) -> UILabel { self.textColor = color; return self }
+    override func applyColor(color:UIColor) -> UILabel { self.textColor = color; return self }
     
 }

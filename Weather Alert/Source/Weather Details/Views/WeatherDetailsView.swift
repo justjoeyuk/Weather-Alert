@@ -64,6 +64,10 @@ extension WeatherDetailsView : UICollectionViewDelegate {
         
         targetContentOffset.memory = newOffset
     }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        collectionView.scrollToItemAtIndexPath(indexPath, atScrollPosition: .Left, animated: true)
+    }
 }
 
 

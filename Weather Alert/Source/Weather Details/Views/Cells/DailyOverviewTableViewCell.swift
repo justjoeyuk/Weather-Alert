@@ -12,11 +12,40 @@ import UIKit
 class DailyOverviewTableViewCell : BaseTableViewCell {
     
     let dayLabel = UILabel()
+    let animatedTurbineView = UIImageView()
+    let windSpeedLabel = UILabel()
+    
+    let windDirectionImageView = UIImageView()
+    let windDirectionLabel = UILabel()
+    
     
     override func setup() {
         backgroundColor = UIColor.darkBackgroundColor()
         
         setupDayLabel()
+        setupAnimatedTurbineView()
+        setupWindSpeedLabel()
+        setupWindDirectionImageView()
+        setupWindDirectionLabel()
+    }
+    
+    func setupAnimatedTurbineView() {
+        // TODO: Update hardcoded time (extract code out)
+        animatedTurbineView.image = UIImage.Asset.Turbine.image
+        animatedTurbineView.applyRotationAnimation(3)
+        animatedTurbineView.contentMode = .ScaleAspectFit
+    }
+    
+    func setupWindSpeedLabel() {
+        
+    }
+    
+    func setupWindDirectionImageView() {
+        
+    }
+    
+    func setupWindDirectionLabel() {
+        
     }
     
     private func setupDayLabel() {

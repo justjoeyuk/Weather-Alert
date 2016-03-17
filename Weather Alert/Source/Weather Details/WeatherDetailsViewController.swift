@@ -53,7 +53,6 @@ extension WeatherDetailsViewController : UITableViewDelegate {
         if offset <= 0 { offset = 0 }
         if offset >= halfHeaderHeight { offset = halfHeaderHeight }
         
-        detailView.todayCollectionView.stopScrolling()
         detailView.todayForecastTopConstraint.updateOffset(-offset)
     }
     

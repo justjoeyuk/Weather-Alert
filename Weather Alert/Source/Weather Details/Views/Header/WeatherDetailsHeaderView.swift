@@ -14,10 +14,10 @@ class WeatherDetailsHeaderView : BaseView {
     let backgroundImageView = UIImageView()
     let cityNameLabel = UILabel()
     
-    let windDirectionView = UIImageView()
+    let windDirectionView = WindDirectionView()
     let windDirectionLabel = UILabel()
     
-    let animatedTurbineView = UIImageView()
+    let animatedTurbineView = AnimatedTurbineView()
     let windSpeedLabel = UILabel()
     
     let windStrengthLabel = UILabel()
@@ -34,58 +34,56 @@ class WeatherDetailsHeaderView : BaseView {
     }
     
     private func setupBackgroundImageView() {
-        backgroundImageView.clipsToBounds = true
         backgroundImageView.image = UIImage.Asset.Mock_Location.image
         backgroundImageView.contentMode = .ScaleAspectFill
-        
-        let overlay = UIView()
-        overlay.backgroundColor = UIColor.darkTransparentColor()
-        
-        backgroundImageView.addSubview(overlay)
-        overlay.snp_makeConstraints { make in make.edges.equalTo(self.backgroundImageView) }
+        backgroundImageView.applyOverlay()
         
         addSubview(backgroundImageView)
     }
     
     private func setupCityNameLabel() {
-        cityNameLabel.applyAutoSize().applyOxygenFont(40).applyColor(UIColor.whiteColor()).centered
-        cityNameLabel.text = "Manchester"
+        cityNameLabel
+            .applyAutoSize()
+            .applyOxygenFont(kHeadingFontSize)
+            .applyColor(UIColor.whiteColor())
+            .centered
+            .text = "Manchester"
         
         addSubview(cityNameLabel)
     }
     
     private func setupWindDirectionLabel() {
-        windDirectionLabel.applyOxygenFont(18).applyColor(UIColor.whiteColor())
-        windDirectionLabel.text = "SW"
+        windDirectionLabel
+            .applyOxygenFont(kStandardFontSize)
+            .applyColor(UIColor.whiteColor())
+            .text = "SW"
         
         addSubview(windDirectionLabel)
     }
     
     private func setupWindDirectionView() {
-        windDirectionView.image = UIImage.Asset.Arrow.image
-        windDirectionView.contentMode = .ScaleAspectFit
-        
         addSubview(windDirectionView)
     }
     
     private func setupAnimatedTurbineView() {
-        animatedTurbineView.image = UIImage.Asset.Turbine.image
-        animatedTurbineView.applyRotationAnimation(3)
-        animatedTurbineView.contentMode = .ScaleAspectFit
-        
         addSubview(animatedTurbineView)
     }
     
     private func setupWindSpeedLabel() {
-        windSpeedLabel.applyOxygenFont(18).applyColor(UIColor.whiteColor())
-        windSpeedLabel.text = "20mph"
+        windSpeedLabel
+            .applyOxygenFont(kStandardFontSize)
+            .applyColor(UIColor.whiteColor())
+            .text = "20mph"
         
         addSubview(windSpeedLabel)
     }
     
     private func setupWindStrengthLabel() {
-        windStrengthLabel.applyOxygenFont(24).applyColor(UIColor.whiteColor())
-        windStrengthLabel.text = "Windy"
+        windStrengthLabel
+            .applyOxygenFont(kSubHeadingFontSize)
+            .applyColor(UIColor.whiteColor())
+            .text = "Windy"
+        
         addSubview(windStrengthLabel)
     }
     

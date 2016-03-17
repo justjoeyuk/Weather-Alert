@@ -24,6 +24,9 @@
 		EF0570F71C791CDC00B1D105 /* DiskConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0570E21C791CDC00B1D105 /* DiskConfiguration.swift */; };
 		EF1ABA041C9B2B83006D5049 /* UIScrollView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1ABA031C9B2B83006D5049 /* UIScrollView+Extensions.swift */; };
 		EF1ABA061C9B2E47006D5049 /* Number+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF1ABA051C9B2E47006D5049 /* Number+Extensions.swift */; };
+		EF38B06D1C9B5150005B29CD /* AnimatedTurbineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF38B06C1C9B5150005B29CD /* AnimatedTurbineView.swift */; };
+		EF38B06F1C9B520C005B29CD /* WindDirectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF38B06E1C9B520C005B29CD /* WindDirectionView.swift */; };
+		EF38B0711C9B5C29005B29CD /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF38B0701C9B5C29005B29CD /* Fonts.swift */; };
 		EF4250291C92277E0076DC70 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4250281C92277E0076DC70 /* HomeViewController.swift */; };
 		EF42502B1C9228010076DC70 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF42502A1C9228010076DC70 /* HomeView.swift */; };
 		EF42502E1C931E9D0076DC70 /* WeatherCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF42502D1C931E9D0076DC70 /* WeatherCardTableViewCell.swift */; };
@@ -82,6 +85,9 @@
 		EF0570E21C791CDC00B1D105 /* DiskConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiskConfiguration.swift; sourceTree = "<group>"; };
 		EF1ABA031C9B2B83006D5049 /* UIScrollView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Extensions.swift"; sourceTree = "<group>"; };
 		EF1ABA051C9B2E47006D5049 /* Number+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Number+Extensions.swift"; sourceTree = "<group>"; };
+		EF38B06C1C9B5150005B29CD /* AnimatedTurbineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatedTurbineView.swift; sourceTree = "<group>"; };
+		EF38B06E1C9B520C005B29CD /* WindDirectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindDirectionView.swift; sourceTree = "<group>"; };
+		EF38B0701C9B5C29005B29CD /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		EF4250281C92277E0076DC70 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		EF42502A1C9228010076DC70 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		EF42502D1C931E9D0076DC70 /* WeatherCardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherCardTableViewCell.swift; sourceTree = "<group>"; };
@@ -200,6 +206,7 @@
 				EF0570DC1C791CDC00B1D105 /* Components */,
 				EF42503C1C936A8E0076DC70 /* Extensions */,
 				EF4250511C9398620076DC70 /* Utilities */,
+				EF38B06B1C9B511E005B29CD /* Views */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -232,6 +239,15 @@
 				EF0570E21C791CDC00B1D105 /* DiskConfiguration.swift */,
 			);
 			path = Configuration;
+			sourceTree = "<group>";
+		};
+		EF38B06B1C9B511E005B29CD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EF38B06C1C9B5150005B29CD /* AnimatedTurbineView.swift */,
+				EF38B06E1C9B520C005B29CD /* WindDirectionView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		EF4250241C921C1E0076DC70 /* Home */ = {
@@ -274,6 +290,7 @@
 			children = (
 				EF4250351C9332480076DC70 /* Images.swift */,
 				EFC4A3131C94EAC800ADEDA7 /* Colors.swift */,
+				EF38B0701C9B5C29005B29CD /* Fonts.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -568,13 +585,16 @@
 				EFC4A3011C94707200ADEDA7 /* WeatherPageDatasource.swift in Sources */,
 				EFC4A30D1C94D56300ADEDA7 /* TodayForecastDataSource.swift in Sources */,
 				EF1ABA061C9B2E47006D5049 /* Number+Extensions.swift in Sources */,
+				EF38B0711C9B5C29005B29CD /* Fonts.swift in Sources */,
 				EF4250361C9332480076DC70 /* Images.swift in Sources */,
 				EF4250401C936EE10076DC70 /* UIView+Extensions.swift in Sources */,
 				EF4250321C93266D0076DC70 /* WeatherCardTableViewDataSource.swift in Sources */,
 				EF0570F61C791CDC00B1D105 /* Configuration.swift in Sources */,
+				EF38B06F1C9B520C005B29CD /* WindDirectionView.swift in Sources */,
 				EFC4A3121C94DD1F00ADEDA7 /* BaseCollectionViewCell.swift in Sources */,
 				EF4250301C931F3E0076DC70 /* BaseTableViewCell.swift in Sources */,
 				EF0570F41C791CDC00B1D105 /* BaseVC.swift in Sources */,
+				EF38B06D1C9B5150005B29CD /* AnimatedTurbineView.swift in Sources */,
 				EF0570F71C791CDC00B1D105 /* DiskConfiguration.swift in Sources */,
 				EF42502E1C931E9D0076DC70 /* WeatherCardTableViewCell.swift in Sources */,
 				EFC4A3181C95BE7800ADEDA7 /* DailyOverviewDataSource.swift in Sources */,

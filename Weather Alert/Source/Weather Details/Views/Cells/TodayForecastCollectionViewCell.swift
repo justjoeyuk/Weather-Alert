@@ -22,7 +22,12 @@ class TodayForecastCollectionViewCell : BaseCollectionViewCell {
     }
     
     private func setupTimeLabel() {
-        timeLabel.applyAutoSize().applyOxygenFont().applyColor(UIColor.whiteColor()).centered
+        timeLabel
+            .applyAutoSize()
+            .applyOxygenFont()
+            .applyColor(UIColor.whiteColor())
+            .centered
+        
         timeLabel.text = "12:00"
         
         contentView.addSubview(timeLabel)
@@ -36,8 +41,12 @@ class TodayForecastCollectionViewCell : BaseCollectionViewCell {
     }
     
     private func setupWindSpeedLabel() {
-        windSpeedLabel.applyAutoSize().applyOxygenFont().applyColor(UIColor.whiteColor()).centered
-        windSpeedLabel.text = "25mph"
+        windSpeedLabel
+            .applyAutoSize()
+            .applyOxygenFont()
+            .applyColor(UIColor.whiteColor())
+            .centered
+            .text = "25mph"
         
         contentView.addSubview(windSpeedLabel)
     }

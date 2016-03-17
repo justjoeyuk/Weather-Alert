@@ -12,8 +12,8 @@ import UIKit
 class WeatherCardTableViewCell : BaseTableViewCell {
     
     let backgroundImageView = UIImageView()
-    let animatedTurbineView = UIImageView()
-    let windDirectionView = UIImageView()
+    let animatedTurbineView = AnimatedTurbineView()
+    let windDirectionView = WindDirectionView()
     
     let horizontalPipe = UIView()
     let cityLabel = UILabel()
@@ -21,6 +21,7 @@ class WeatherCardTableViewCell : BaseTableViewCell {
     let windDirectionLabel = UILabel()
     let windStrengthLabel = UILabel()
     
+    // We override the frame to add spacing to the cells
     override var frame: CGRect {
         get {
             return super.frame
@@ -43,10 +44,9 @@ class WeatherCardTableViewCell : BaseTableViewCell {
     // MARK: Setup
     
     override func setup() {
-        self.selectionStyle = .None
-        self.backgroundColor = UIColor.whiteColor()
-        self.clipsToBounds = true
-        self.contentView.clipsToBounds = true
+        self.applyClipping()
+            .applyColor(UIColor.whiteColor())
+            .selectionStyle = .None
         
         setupBackgroundImageView()
         setupCityLabel()
@@ -60,23 +60,22 @@ class WeatherCardTableViewCell : BaseTableViewCell {
     }
     
     private func setupBackgroundImageView() {
-        backgroundImageView.image = UIImage.Asset.Mock_Location.image
-        backgroundImageView.clipsToBounds = true
         backgroundImageView.contentMode = .ScaleAspectFill
-        backgroundImageView.opaque = true
         
-        let overlay = UIView()
-        overlay.backgroundColor = UIColor.darkTransparentColor()
-        
-        backgroundImageView.addSubview(overlay)
-        overlay.snp_makeConstraints { make in make.edges.equalTo(self.backgroundImageView) }
+        backgroundImageView
+            .applyClipping()
+            .applyOverlay()
+            .image = UIImage.Asset.Mock_Location.image
         
         contentView.addSubview(self.backgroundImageView)
     }
     
     private func setupCityLabel() {
-        cityLabel.text = "Manchester"
-        cityLabel.applyAutoSize().applyOxygenFont(30).applyColor(UIColor.whiteColor())
+        cityLabel
+            .applyAutoSize()
+            .applyOxygenFont(kCellHeadingFontSize)
+            .applyColor(UIColor.whiteColor())
+            .text = "Manchester"
         
         contentView.addSubview(self.cityLabel)
     }
@@ -87,43 +86,42 @@ class WeatherCardTableViewCell : BaseTableViewCell {
     }
     
     private func setupAnimatedTurbineView() {
-        animatedTurbineView.image = UIImage.Asset.Turbine.image
-        animatedTurbineView.opaque = true
-        animatedTurbineView.contentMode = .ScaleAspectFit
-        
         contentView.addSubview(animatedTurbineView)
     }
     
     private func setupWindDirectionView() {
-        windDirectionView.opaque = true
-        windDirectionView.image = UIImage.Asset.Arrow.image
-        
-        let transform = CGAffineTransformRotate(CGAffineTransformIdentity, CGFloat(DegreesToRadians(-90)));
-        self.windDirectionView.transform = transform;
-        
         contentView.addSubview(windDirectionView)
     }
     
     private func setupWindDirectionLabel() {
-        windDirectionLabel.text = "SW"
-        
-        windDirectionLabel.applyAutoSize().applyOxygenFont(12).applyColor(UIColor.whiteColor()).centered
-        windDirectionLabel.numberOfLines = 1
+        windDirectionLabel
+            .applyAutoSize()
+            .applyOxygenFont(kCellStandardFontSize)
+            .applyColor(UIColor.whiteColor())
+            .centered
+            .oneLine
+            .text = "SW"
         
         contentView.addSubview(windDirectionLabel)
     }
     
     private func setupWindSpeedLabel() {
-        windSpeedLabel.text = "20mph"
-        windSpeedLabel.applyAutoSize().applyOxygenFont(12).applyColor(UIColor.whiteColor()).centered
-        windSpeedLabel.numberOfLines = 1
+        windSpeedLabel
+            .applyAutoSize()
+            .applyOxygenFont(kCellStandardFontSize)
+            .applyColor(UIColor.whiteColor())
+            .centered
+            .oneLine
+            .text = "20mph"
         
         contentView.addSubview(windSpeedLabel)
     }
     
     private func setupWindStrengthLabel() {
-        windStrengthLabel.text = "Very Windy"
-        windStrengthLabel.applyOxygenFont(16).applyColor(UIColor.whiteColor())
+        windStrengthLabel
+            .applyOxygenFont(kCellSubHeadingFontSize)
+            .applyColor(UIColor.whiteColor())
+            .text = "Very Windy"
         
         contentView.addSubview(windStrengthLabel)
     }
