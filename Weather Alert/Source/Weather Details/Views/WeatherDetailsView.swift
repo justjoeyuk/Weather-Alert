@@ -41,6 +41,7 @@ class WeatherDetailsView : BaseView {
         todayCollectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: layout)
         todayCollectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         todayCollectionView.backgroundColor = UIColor.darkBackgroundColor()
+        todayCollectionView.delegate = self
         
         addSubview(todayCollectionView)
     }
@@ -53,8 +54,24 @@ class WeatherDetailsView : BaseView {
     
 }
 
+extension WeatherDetailsView : UICollectionViewDelegate {
+    func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        
+        // Modify the target offset to be fixed to a cell
+        var newOffset = targetContentOffset.memory
+        let newVal = newOffset.x.roundToPlaceValue(Float(LayoutConstants.TodayCollectionCellSize))
+        newOffset.x = CGFloat(newVal)
+        
+        targetContentOffset.memory = newOffset
+    }
+}
+
 
 extension WeatherDetailsView {
+    
+    struct LayoutConstants {
+        static let TodayCollectionCellSize = 60
+    }
     
     override func setupConstraints() {
         setupTodayCollectionViewConstraints()
@@ -81,7 +98,7 @@ extension WeatherDetailsView {
         todayCollectionView.snp_makeConstraints { make in
             make.left.right.equalTo(self)
             self.todayForecastTopConstraint = make.top.equalTo(self.headerView.snp_bottom).constraint
-            make.height.equalTo(62)
+            make.height.equalTo(60)
         }
     }
     

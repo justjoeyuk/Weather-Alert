@@ -24,7 +24,6 @@ class WeatherDetailsViewController : BaseVC {
     override func viewDidLoad() {
         detailView.todayCollectionView.registerClass(TodayForecastCollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
         detailView.todayCollectionView.dataSource = todayForecastDataSource
-        detailView.todayCollectionView.delegate = self
         
         detailView.dailyOverviewTableView.registerClass(DailyOverviewTableViewCell.self, forCellReuseIdentifier: "DailyOverviewCell")
         detailView.dailyOverviewTableView.dataSource = dailyOverviewDataSource
@@ -54,6 +53,7 @@ extension WeatherDetailsViewController : UITableViewDelegate {
         if offset <= 0 { offset = 0 }
         if offset >= halfHeaderHeight { offset = halfHeaderHeight }
         
+        detailView.todayCollectionView.stopScrolling()
         detailView.todayForecastTopConstraint.updateOffset(-offset)
     }
     

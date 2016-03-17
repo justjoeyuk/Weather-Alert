@@ -22,6 +22,19 @@ class MathTests: XCTestCase {
         super.tearDown()
     }
     
+    func testThatRoundingToPlaceValuesWorks() {
+        let placeValue:Float = 60.0
+        let lowExampleValue = 30.5
+        let highExampleValue = 89.9
+        let nextExampleValue = 90
+        let zeroExampleValue = 29.4
+        
+        XCTAssertEqual(highExampleValue.roundToPlaceValue(placeValue), Int(placeValue))
+        XCTAssertEqual(lowExampleValue.roundToPlaceValue(placeValue), Int(placeValue))
+        XCTAssertEqual(nextExampleValue.roundToPlaceValue(placeValue), Int(placeValue * 2))
+        XCTAssertEqual(zeroExampleValue.roundToPlaceValue(placeValue), 0)
+    }
+    
     func testThatConversionFromDegreesToRadiansWorks() {
         let highNorthDeg = 360.0
         let lowNorthDeg = 0.0
