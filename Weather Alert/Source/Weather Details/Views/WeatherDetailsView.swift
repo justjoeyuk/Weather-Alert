@@ -7,13 +7,15 @@
 //
 
 import UIKit
+import SnapKit
 
 
 class WeatherDetailsView : BaseView {
     
+    var todayForecastTopConstraint: Constraint!
     let headerView = WeatherDetailsHeaderView()
     var todayCollectionView:UICollectionView!
-    let forecastTableView = UITableView()
+    let dailyOverviewTableView = UITableView()
     
     
     override func setup() {
@@ -21,7 +23,7 @@ class WeatherDetailsView : BaseView {
         
         setupHeaderView()
         setupTodayCollectionView()
-        setupForecastTableView()
+        setupDailyOverviewTableView()
     }
     
     private func setupHeaderView() {
@@ -33,18 +35,20 @@ class WeatherDetailsView : BaseView {
         layout.scrollDirection = .Horizontal
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         layout.itemSize = CGSize(width: 60, height: 60)
         
         todayCollectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: layout)
+        todayCollectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         todayCollectionView.backgroundColor = UIColor.darkBackgroundColor()
         
         addSubview(todayCollectionView)
     }
     
-    private func setupForecastTableView() {
-        forecastTableView.backgroundColor = UIColor.darkBackgroundColor()
+    private func setupDailyOverviewTableView() {
+        dailyOverviewTableView.backgroundColor = UIColor.darkBackgroundColor()
         
-        addSubview(forecastTableView)
+        addSubview(dailyOverviewTableView)
     }
     
 }
@@ -67,7 +71,7 @@ extension WeatherDetailsView {
     }
     
     private func setupForecastTableViewConstraints() {
-        forecastTableView.snp_makeConstraints { make in
+        dailyOverviewTableView.snp_makeConstraints { make in
             make.bottom.right.left.equalTo(self)
             make.top.equalTo(self.todayCollectionView.snp_bottom)
         }
@@ -76,8 +80,8 @@ extension WeatherDetailsView {
     private func setupTodayCollectionViewConstraints() {
         todayCollectionView.snp_makeConstraints { make in
             make.left.right.equalTo(self)
-            make.top.equalTo(self.headerView.snp_bottom)
-            make.height.equalTo(60)
+            self.todayForecastTopConstraint = make.top.equalTo(self.headerView.snp_bottom).constraint
+            make.height.equalTo(62)
         }
     }
     

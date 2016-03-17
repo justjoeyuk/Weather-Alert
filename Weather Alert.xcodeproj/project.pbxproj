@@ -47,6 +47,8 @@
 		EFC4A3101C94DD0E00ADEDA7 /* TodayForecastCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC4A30F1C94DD0E00ADEDA7 /* TodayForecastCollectionViewCell.swift */; };
 		EFC4A3121C94DD1F00ADEDA7 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC4A3111C94DD1F00ADEDA7 /* BaseCollectionViewCell.swift */; };
 		EFC4A3141C94EAC800ADEDA7 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC4A3131C94EAC800ADEDA7 /* Colors.swift */; };
+		EFC4A3161C95BD1800ADEDA7 /* DailyOverviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC4A3151C95BD1800ADEDA7 /* DailyOverviewTableViewCell.swift */; };
+		EFC4A3181C95BE7800ADEDA7 /* DailyOverviewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC4A3171C95BE7800ADEDA7 /* DailyOverviewDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +105,8 @@
 		EFC4A30F1C94DD0E00ADEDA7 /* TodayForecastCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodayForecastCollectionViewCell.swift; sourceTree = "<group>"; };
 		EFC4A3111C94DD1F00ADEDA7 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		EFC4A3131C94EAC800ADEDA7 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		EFC4A3151C95BD1800ADEDA7 /* DailyOverviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyOverviewTableViewCell.swift; sourceTree = "<group>"; };
+		EFC4A3171C95BE7800ADEDA7 /* DailyOverviewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyOverviewDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -358,6 +362,7 @@
 			isa = PBXGroup;
 			children = (
 				EFC4A30C1C94D56300ADEDA7 /* TodayForecastDataSource.swift */,
+				EFC4A3171C95BE7800ADEDA7 /* DailyOverviewDataSource.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -384,6 +389,7 @@
 			isa = PBXGroup;
 			children = (
 				EFC4A30F1C94DD0E00ADEDA7 /* TodayForecastCollectionViewCell.swift */,
+				EFC4A3151C95BD1800ADEDA7 /* DailyOverviewTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -548,6 +554,7 @@
 				EFC4A2FA1C946ABC00ADEDA7 /* String+Extensions.swift in Sources */,
 				EFC4A3141C94EAC800ADEDA7 /* Colors.swift in Sources */,
 				EFC4A2F61C94644F00ADEDA7 /* Weather.swift in Sources */,
+				EFC4A3161C95BD1800ADEDA7 /* DailyOverviewTableViewCell.swift in Sources */,
 				EF0570F31C791CDC00B1D105 /* AppDelegate.swift in Sources */,
 				EFC4A3051C94889200ADEDA7 /* WeatherDetailsViewController.swift in Sources */,
 				EFC4A30B1C94AE9400ADEDA7 /* WeatherDetailsHeaderView.swift in Sources */,
@@ -563,6 +570,7 @@
 				EF0570F41C791CDC00B1D105 /* BaseVC.swift in Sources */,
 				EF0570F71C791CDC00B1D105 /* DiskConfiguration.swift in Sources */,
 				EF42502E1C931E9D0076DC70 /* WeatherCardTableViewCell.swift in Sources */,
+				EFC4A3181C95BE7800ADEDA7 /* DailyOverviewDataSource.swift in Sources */,
 				EFC4A3101C94DD0E00ADEDA7 /* TodayForecastCollectionViewCell.swift in Sources */,
 				EF4250291C92277E0076DC70 /* HomeViewController.swift in Sources */,
 			);
