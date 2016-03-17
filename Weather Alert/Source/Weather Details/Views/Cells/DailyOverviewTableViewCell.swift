@@ -29,6 +29,7 @@ class DailyOverviewTableViewCell : BaseTableViewCell {
     
     override func setup() {
         backgroundColor = UIColor.darkBackgroundColor()
+        selectionStyle = .None
         
         setupDayLabel()
         setupAnimatedTurbineView()
