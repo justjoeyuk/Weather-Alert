@@ -22,12 +22,16 @@ class WeatherDetailsViewController : BaseVC {
     }
     
     override func viewDidLoad() {
-        detailView.todayCollectionView.registerClass(TodayForecastCollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
-        detailView.todayCollectionView.dataSource = todayForecastDataSource
+        let todayCollectionView = detailView.todayCollectionView
+        let dailyOverviewTable = detailView.dailyOverviewTableView
         
-        detailView.dailyOverviewTableView.registerClass(DailyOverviewTableViewCell.self, forCellReuseIdentifier: "DailyOverviewCell")
-        detailView.dailyOverviewTableView.dataSource = dailyOverviewDataSource
-        detailView.dailyOverviewTableView.delegate = self
+        todayCollectionView.registerClass(TodayForecastCollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
+        todayCollectionView.dataSource = todayForecastDataSource
+        
+        dailyOverviewTable.registerClass(DailyOverviewTableViewCell.self, forCellReuseIdentifier: "DailyOverviewCell")
+        dailyOverviewTable.separatorStyle = .None
+        dailyOverviewTable.dataSource = dailyOverviewDataSource
+        dailyOverviewTable.delegate = self
     }
     
     func applyModel(str:String) {
@@ -43,7 +47,7 @@ extension WeatherDetailsViewController : UICollectionViewDelegate {
 
 extension WeatherDetailsViewController : UITableViewDelegate {
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 55
+        return 65
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
@@ -66,5 +70,4 @@ extension WeatherDetailsViewController : UITableViewDelegate {
         
         targetContentOffset.memory.y = offset
     }
-
 }

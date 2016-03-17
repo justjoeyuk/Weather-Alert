@@ -15,6 +15,7 @@ class TodayForecastCollectionViewCell : BaseCollectionViewCell {
     let windDirectionView = UIImageView()
     let windSpeedLabel = UILabel()
     
+    
     override func setup() {
         setupTimeLabel()
         setupWindDirectionView()
@@ -27,8 +28,7 @@ class TodayForecastCollectionViewCell : BaseCollectionViewCell {
             .applyOxygenFont()
             .applyColor(UIColor.whiteColor())
             .centered
-        
-        timeLabel.text = "12:00"
+            .text = "12:00"
         
         contentView.addSubview(timeLabel)
     }
