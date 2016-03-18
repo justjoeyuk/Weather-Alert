@@ -79,7 +79,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = EF75CFC81C9CA1BF00436843 /* Pods.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = 054A44BF35C777D6DAC48162;
+			remoteGlobalIDString = 69FCDDBBAB579FA824FFD3D2;
 			remoteInfo = "Pods-Weather Alert";
 		};
 /* End PBXContainerItemProxy section */
