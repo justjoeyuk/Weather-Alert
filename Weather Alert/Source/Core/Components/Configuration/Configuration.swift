@@ -10,6 +10,7 @@ import Foundation
 */
 enum DiskConfigurationKey : String {
     case DebugMode = "debug_mode"
+    case WeatherAPIBaseUrlKey = "weather_api_base_url"
 }
 
 

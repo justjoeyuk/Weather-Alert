@@ -52,12 +52,8 @@ extension HomeViewController : GMSAutocompleteViewControllerDelegate {
     
     // Handle the user's selection.
     func viewController(viewController: GMSAutocompleteViewController, didAutocompleteWithPlace place: GMSPlace) {
-        if let safePlaceAddress = place.formattedAddress?.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet()) {
-            print(safePlaceAddress)
-        }
-        else {
-            let controller = UIAlertController(title: "A Problem Occured.", message: "Sorry, something happened. We could not find that location", preferredStyle: .Alert)
-            self.presentViewController(controller, animated: true, completion: nil)
+        WeatherAPIManager.gatherFiveDayForecast(place.formattedAddress) { success, error in
+            print("success")
         }
         
         self.dismissViewControllerAnimated(true, completion: nil)

@@ -5,6 +5,6 @@
 	<key>debug_mode</key>
 	<false/>
 	<key>weather_api_base_url</key>
-	<string>http://api.openweathermap.org/data/2.5/</string>
+	<string>http://api.openweathermap.org/data/2.5</string>
 </dict>
 </plist>
