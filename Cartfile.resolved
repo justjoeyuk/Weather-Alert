@@ -1,1 +1,2 @@
 github "SnapKit/SnapKit" "0.19.1"
+github "realm/realm-cocoa" "v0.98.5"

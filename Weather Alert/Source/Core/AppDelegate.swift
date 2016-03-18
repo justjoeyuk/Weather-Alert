@@ -3,6 +3,7 @@
 //
 
 import UIKit
+import GoogleMaps
 
 
 @UIApplicationMain
@@ -11,8 +12,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        setupGoogleMaps()
         setupInitialViewController()
         return true
+    }
+    
+    private func setupGoogleMaps() {
+        GMSServices.provideAPIKey("AIzaSyA26srX_xwXDdFC8SQp-LzxxH2I7Zq8Wog")
     }
     
     private func setupInitialViewController() {

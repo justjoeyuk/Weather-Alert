@@ -1,6 +1,7 @@
 //
 //  Staging.xcconfig
 //
+#include "Pods/Target Support Files/Pods-Weather Alert/Pods-Weather Alert.debug.xcconfig"
 
 OTHER_CFLAGS = -DSTAGING=1
 CONFIGURATION_PLIST = StagingConfig

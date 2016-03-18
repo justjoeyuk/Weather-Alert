@@ -18,7 +18,6 @@ import Foundation
  - return A localized understandable terminology for the given wind speed
  */
 func windDescriptionFromSpeed(speed:Double) -> String {
-    // TODO: Localise
     let speed = abs(round(speed))
     var windType:String = ""
     

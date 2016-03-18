@@ -1,6 +1,7 @@
 //
 //  Release.xcconfig
 //
+#include "Pods/Target Support Files/Pods-Weather Alert/Pods-Weather Alert.release.xcconfig"
 
 OTHER_CFLAGS = -DRELEASE=1
 CONFIGURATION_PLIST = ReleaseConfig
