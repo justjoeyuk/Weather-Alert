@@ -12,6 +12,12 @@ import ObjectMapper
 import RealmSwift
 
 
+enum WeatherAPIError: ErrorType {
+    case FailedToCreateCity
+    case FailedToUpdateImage
+}
+
+
 class WeatherAPIManager {
     
     private static let baseUrl = DiskConfiguration.defaultConfig().settingForKey(.WeatherAPIBaseUrlKey)
@@ -32,15 +38,43 @@ class WeatherAPIManager {
             guard let jsonValue = response.result.value as? NSDictionary else { callback(false, nil); return }
             guard let cityData = jsonValue["city"] as? NSDictionary else { callback(false, nil); return }
             
-            print(cityData)
-            let realm = try! Realm()
-            let city = Mapper<City>().map(cityData)
-            
-            try! realm.write {
-                realm.create(City.self, value: city!, update: true)
+            do {
+                let realm = try Realm()
+                
+                guard let city = Mapper<City>().map(cityData) else { throw WeatherAPIError.FailedToCreateCity }
+                city.lastForecast = NSDate()
+                
+                try realm.write {
+                    realm.create(City.self, value: city, update: true)
+                }
+                
+                WeatherAPIManager.updateLocationImage(city.id)
+            }
+            catch {
+                print("*** ERROR IN FORECAST RESPONSE: \(error) ***")
             }
             
             callback(true, nil)
+        }
+    }
+    
+    /**
+     Searches our image provider for an image that matches the city with the given id. Also 
+     updates the City in the DB with an URL that is an image matching the search query (location name)
+    */
+    static func updateLocationImage(locationId:Int) {
+        do {
+            let realm = try Realm()
+            guard let city = realm.objectForPrimaryKey(City.self, key: locationId) else { throw WeatherAPIError.FailedToUpdateImage }
+            
+            let prov = FlickrImageProvider()
+            prov.fetchImageURLForCity(city) { url, error in
+                guard let url = url else { print("*** ERROR: \(error) ***"); return }
+                print(url)
+            }
+        }
+        catch {
+            print("Could not update image for location with ID: \(locationId). \(error)")
         }
     }
     

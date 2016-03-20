@@ -36,6 +36,8 @@
 		EF42503B1C935A3F0076DC70 /* Oxygen-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF4250391C935A3F0076DC70 /* Oxygen-Regular.ttf */; };
 		EF4250481C9397480076DC70 /* MathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4250471C9397480076DC70 /* MathTests.swift */; };
 		EF4250531C9398750076DC70 /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4250521C9398750076DC70 /* Math.swift */; };
+		EF5F54BE1C9F3A1700AC5CDE /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5F54BD1C9F3A1700AC5CDE /* ImageProvider.swift */; };
+		EF5F54C01C9F3E0800AC5CDE /* FlickrImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5F54BF1C9F3E0800AC5CDE /* FlickrImageProvider.swift */; };
 		EF75CFD31C9CA52400436843 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EF75CFD21C9CA52400436843 /* GoogleMaps.bundle */; };
 		EFC4A2F61C94644F00ADEDA7 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC4A2F51C94644F00ADEDA7 /* Weather.swift */; };
 		EFC4A2F81C94648E00ADEDA7 /* WeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC4A2F71C94648E00ADEDA7 /* WeatherTests.swift */; };
@@ -119,6 +121,8 @@
 		EF4250471C9397480076DC70 /* MathTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathTests.swift; sourceTree = "<group>"; };
 		EF4250491C9397480076DC70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF4250521C9398750076DC70 /* Math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
+		EF5F54BD1C9F3A1700AC5CDE /* ImageProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
+		EF5F54BF1C9F3E0800AC5CDE /* FlickrImageProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrImageProvider.swift; sourceTree = "<group>"; };
 		EF73FDB71C62A2540075D168 /* Weather Alert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Weather Alert.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF75CFC81C9CA1BF00436843 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = Pods/Pods.xcodeproj; sourceTree = "<group>"; };
 		EF75CFD01C9CA4FF00436843 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = Pods/GoogleMaps/Frameworks/GoogleMaps.framework; sourceTree = "<group>"; };
@@ -347,6 +351,15 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		EF5F54BC1C9F3A0C00AC5CDE /* Image Provider */ = {
+			isa = PBXGroup;
+			children = (
+				EF5F54BD1C9F3A1700AC5CDE /* ImageProvider.swift */,
+				EF5F54BF1C9F3E0800AC5CDE /* FlickrImageProvider.swift */,
+			);
+			path = "Image Provider";
+			sourceTree = "<group>";
+		};
 		EF73FDAE1C62A2540075D168 = {
 			isa = PBXGroup;
 			children = (
@@ -498,6 +511,7 @@
 		EFFAD7481C9CB5CB002F9399 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				EF5F54BC1C9F3A0C00AC5CDE /* Image Provider */,
 				EFFAD7491C9CB5FD002F9399 /* WeatherAPIManager.swift */,
 			);
 			path = Networking;
@@ -704,6 +718,7 @@
 				EFFAD73C1C9CB32D002F9399 /* City.swift in Sources */,
 				EFFAD7461C9CB34E002F9399 /* WeatherPageDatasource.swift in Sources */,
 				EF38B07E1C9C68D5005B29CD /* UILabel+Extensions.swift in Sources */,
+				EF5F54C01C9F3E0800AC5CDE /* FlickrImageProvider.swift in Sources */,
 				EFFAD74A1C9CB5FD002F9399 /* WeatherAPIManager.swift in Sources */,
 				EF42502E1C931E9D0076DC70 /* WeatherCardTableViewCell.swift in Sources */,
 				EFFAD7401C9CB32D002F9399 /* WindDirectionView.swift in Sources */,
@@ -713,6 +728,7 @@
 				EF38B07B1C9C68D5005B29CD /* NSDate+Extensions.swift in Sources */,
 				EFFAD7371C9CB32D002F9399 /* BaseTableViewCell.swift in Sources */,
 				EFFAD74C1C9CB93C002F9399 /* Constants.swift in Sources */,
+				EF5F54BE1C9F3A1700AC5CDE /* ImageProvider.swift in Sources */,
 				EF38B07F1C9C68D5005B29CD /* UIScrollView+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -929,6 +945,7 @@
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Weather Alert/Configuration/Plist/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = YES;
@@ -955,6 +972,7 @@
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Weather Alert/Configuration/Plist/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = NO;
@@ -1026,6 +1044,7 @@
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Weather Alert/Configuration/Plist/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = YES;
@@ -1091,6 +1110,7 @@
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/Weather Alert/Configuration/Plist/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = NO;
