@@ -14,7 +14,6 @@ import GoogleMaps
 class HomeViewController : BaseVC {
     
     var homeView: HomeView { return self.view as! HomeView }
-    
     let weatherCardDatasource = WeatherCardTableViewDataSource()
     
     
@@ -25,6 +24,7 @@ class HomeViewController : BaseVC {
     override func viewDidLoad() {
         self.title = "Home"
         let weatherCardTable = homeView.weatherCardTableView
+        weatherCardDatasource.tableView = weatherCardTable
         
         weatherCardTable.registerClass(WeatherCardTableViewCell.self, forCellReuseIdentifier: "WeatherCardCell")
         weatherCardTable.separatorStyle = .None
@@ -54,9 +54,10 @@ extension HomeViewController : GMSAutocompleteViewControllerDelegate {
     func viewController(viewController: GMSAutocompleteViewController, didAutocompleteWithPlace place: GMSPlace) {
         WeatherAPIManager.gatherFiveDayForecast(place.formattedAddress) { success, error in
             print("Forecast Result for \(place.name): \(success ? "true" : "false")")
+            
+            
+            self.dismissViewControllerAnimated(true, completion: nil)
         }
-        
-        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func viewController(viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: NSError) {

@@ -7,30 +7,45 @@
 //
 
 import UIKit
+import RealmSwift
+import Kingfisher
 
 
 @objc class WeatherCardTableViewDataSource : NSObject, UITableViewDataSource {
     
-    let cities = ["Manchester", "London", "New York", "Lisbon", "Llanfairpwllgwyngyllgogerychwyrndrobwllllantysilio", "Derby"]
-    let speeds = [75.0, 30.0, 50.0, 15.0, 25.0, 10.0]
+    weak var tableView:UITableView?
+    var cityList:Results<City>
+    var realm: Realm
+    var token: NotificationToken?
     
-    let direction = ["SW", "NW", "N", "E", "NE", "W"]
-    let degs = [225.0, 315.0, 360.0, 90.0, 45.0, 270.0]
+    
+    override init() {
+        realm = try! Realm()
+        cityList = realm.objects(City.self)
+        
+        super.init()
+        
+        self.token = realm.objects(City.self).addNotificationBlock { results, error in
+            guard let results = results else { return }
+            self.cityList = results
+            
+            self.tableView?.reloadData()
+        }
+    }
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCellWithIdentifier("WeatherCardCell", forIndexPath: indexPath) as? WeatherCardTableViewCell else { return UITableViewCell() }
+        let city = cityList[indexPath.row]
         
-        cell.cityLabel.text = cities[indexPath.row]
-        cell.windSpeedLabel.text = "\(Int(speeds[indexPath.row]))mph"
-        cell.windStrengthLabel.text = windDescriptionFromSpeed(speeds[indexPath.row])
-        cell.windDirectionLabel.text = direction[indexPath.row]
+        cell.cityLabel.text = city.name
+        cell.windSpeedLabel.text = "20 mph"
+        cell.windStrengthLabel.text = windDescriptionFromSpeed(25)
+        cell.windDirectionLabel.text = "SW"
+        cell.windDirectionView.setWindDirection(210)
         
-        let transform = CGAffineTransformRotate(CGAffineTransformIdentity, CGFloat(DegreesToRadians(degs[indexPath.row])));
-        cell.windDirectionView.transform = transform;
-        
-        cell.animatedTurbineView.applyRotationAnimation(100.0/speeds[indexPath.row])
-        
+        cell.backgroundImageView.kf_setImageWithURL(NSURL(string: city.imageUrl)!)
+        cell.animatedTurbineView.applyRotationAnimation(100.0/25)
         cell.updateWithModel(nil)
         
         return cell
@@ -38,7 +53,7 @@ import UIKit
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return self.cityList.count
     }
     
 }
