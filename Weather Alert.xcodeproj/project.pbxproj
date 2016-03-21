@@ -25,7 +25,6 @@
 		EF38B07E1C9C68D5005B29CD /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF38B0781C9C68D5005B29CD /* UILabel+Extensions.swift */; };
 		EF38B07F1C9C68D5005B29CD /* UIScrollView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF38B0791C9C68D5005B29CD /* UIScrollView+Extensions.swift */; };
 		EF38B0801C9C68D5005B29CD /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF38B07A1C9C68D5005B29CD /* UIView+Extensions.swift */; };
-		EF3B0F551C9C85EA00CD5F83 /* cities.realm in Resources */ = {isa = PBXBuildFile; fileRef = EF3B0F541C9C85EA00CD5F83 /* cities.realm */; };
 		EF3B0F581C9C869000CD5F83 /* AddCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3B0F571C9C869000CD5F83 /* AddCityViewController.swift */; };
 		EF4250291C92277E0076DC70 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4250281C92277E0076DC70 /* HomeViewController.swift */; };
 		EF42502B1C9228010076DC70 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF42502A1C9228010076DC70 /* HomeView.swift */; };
@@ -109,7 +108,6 @@
 		EF38B0781C9C68D5005B29CD /* UILabel+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
 		EF38B0791C9C68D5005B29CD /* UIScrollView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Extensions.swift"; sourceTree = "<group>"; };
 		EF38B07A1C9C68D5005B29CD /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
-		EF3B0F541C9C85EA00CD5F83 /* cities.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = cities.realm; sourceTree = "<group>"; };
 		EF3B0F571C9C869000CD5F83 /* AddCityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCityViewController.swift; sourceTree = "<group>"; };
 		EF4250281C92277E0076DC70 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		EF42502A1C9228010076DC70 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -219,7 +217,6 @@
 			isa = PBXGroup;
 			children = (
 				EF4250341C9332420076DC70 /* Constants */,
-				EF3B0F531C9C85D800CD5F83 /* Data */,
 				EF4250371C935A3F0076DC70 /* Fonts */,
 				EF0570D61C791CDC00B1D105 /* Assets.xcassets */,
 				EF0570D71C791CDC00B1D105 /* LaunchScreen.storyboard */,
@@ -259,14 +256,6 @@
 				EF38B07A1C9C68D5005B29CD /* UIView+Extensions.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		EF3B0F531C9C85D800CD5F83 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				EF3B0F541C9C85EA00CD5F83 /* cities.realm */,
-			);
-			path = Data;
 			sourceTree = "<group>";
 		};
 		EF3B0F561C9C867B00CD5F83 /* Add City */ = {
@@ -670,7 +659,6 @@
 				EF0570EE1C791CDC00B1D105 /* Production.xcconfig in Resources */,
 				EF0570ED1C791CDC00B1D105 /* StagingConfig.plist in Resources */,
 				EF0570E81C791CDC00B1D105 /* Local.xcconfig in Resources */,
-				EF3B0F551C9C85EA00CD5F83 /* cities.realm in Resources */,
 				EF0570F21C791CDC00B1D105 /* LaunchScreen.storyboard in Resources */,
 				EF0570EC1C791CDC00B1D105 /* ReleaseConfig.plist in Resources */,
 			);

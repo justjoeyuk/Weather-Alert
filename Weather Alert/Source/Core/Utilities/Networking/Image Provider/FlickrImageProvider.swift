@@ -32,13 +32,10 @@ class FlickrImageProvider : ImageProvider {
             "api_key":apiKey,
             "safe_search":1,
             "content_type":1,
-            "geo_context":2,
-            "lat":city.latitude,
-            "lon":city.longitude,
-            "accuracy":6,
             "per_page":1,
+            "text":city.name,
             "nojsoncallback":1,
-            "sort":"date-posted-desc" ]
+            "sort":"interestingness-desc" ]
         
         let request = Alamofire.request(.GET, baseEndpoint, parameters: params)
         request.responseJSON { response in
