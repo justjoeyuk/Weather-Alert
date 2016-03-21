@@ -26,11 +26,10 @@ class FlickrImageProvider : ImageProvider {
     func fetchImageURLForCity(city:City, callback:ImageProviderCallback) {
         
         let method = "flickr.photos.search"
-        let params: [String:AnyObject] = ["format":"json", "method": method, "api_key":apiKey, "safe_search":1, "content_type":1, "lat":city.latitude, "lon":city.longitude, "radius":30, "per_page":1, "nojsoncallback":1]
+        let params: [String:AnyObject] = ["format":"json", "method": method, "api_key":apiKey, "safe_search":1, "content_type":1, "geo_context":2, "lat":city.latitude, "lon":city.longitude, "radius":5, "per_page":1, "nojsoncallback":1,"sort":"interestingness-desc"]
         
         let request = Alamofire.request(.GET, baseEndpoint, parameters: params)
         request.responseJSON { response in
-            print(response.request?.URLString)
             
             guard let jsonData = response.result.value as? NSDictionary,
                 let photoList = jsonData.valueForKeyPath("photos.photo") as? NSArray where photoList.count > 0,
@@ -46,7 +45,7 @@ class FlickrImageProvider : ImageProvider {
         }
     }
     
-    private func generatePhotoUrlWithData(photoData:NSDictionary) -> NSURL? {
+    func generatePhotoUrlWithData(photoData:NSDictionary) -> NSURL? {
         let template = "https://farm{farm}.staticflickr.com/{server}/{photo-id}_{photo-secret}.jpg"
         
         guard let farm = photoData["farm"] as? Int,

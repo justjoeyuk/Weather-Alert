@@ -34,13 +34,14 @@
 		EF4250361C9332480076DC70 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4250351C9332480076DC70 /* Images.swift */; };
 		EF42503A1C935A3F0076DC70 /* Oxygen-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF4250381C935A3F0076DC70 /* Oxygen-Bold.ttf */; };
 		EF42503B1C935A3F0076DC70 /* Oxygen-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF4250391C935A3F0076DC70 /* Oxygen-Regular.ttf */; };
-		EF4250481C9397480076DC70 /* MathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4250471C9397480076DC70 /* MathTests.swift */; };
 		EF4250531C9398750076DC70 /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4250521C9398750076DC70 /* Math.swift */; };
+		EF5113071C9F7572000ECA25 /* MathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5113031C9F7572000ECA25 /* MathTests.swift */; };
+		EF5113081C9F7572000ECA25 /* WeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5113061C9F7572000ECA25 /* WeatherTests.swift */; };
+		EF51130A1C9F758C000ECA25 /* FlickrImageProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5113091C9F758C000ECA25 /* FlickrImageProviderTests.swift */; };
 		EF5F54BE1C9F3A1700AC5CDE /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5F54BD1C9F3A1700AC5CDE /* ImageProvider.swift */; };
 		EF5F54C01C9F3E0800AC5CDE /* FlickrImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5F54BF1C9F3E0800AC5CDE /* FlickrImageProvider.swift */; };
 		EF75CFD31C9CA52400436843 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EF75CFD21C9CA52400436843 /* GoogleMaps.bundle */; };
 		EFC4A2F61C94644F00ADEDA7 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC4A2F51C94644F00ADEDA7 /* Weather.swift */; };
-		EFC4A2F81C94648E00ADEDA7 /* WeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC4A2F71C94648E00ADEDA7 /* WeatherTests.swift */; };
 		EFC4A3051C94889200ADEDA7 /* WeatherDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC4A3041C94889200ADEDA7 /* WeatherDetailsViewController.swift */; };
 		EFC4A3081C94893B00ADEDA7 /* WeatherDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC4A3071C94893B00ADEDA7 /* WeatherDetailsView.swift */; };
 		EFC4A30B1C94AE9400ADEDA7 /* WeatherDetailsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC4A30A1C94AE9400ADEDA7 /* WeatherDetailsHeaderView.swift */; };
@@ -118,9 +119,11 @@
 		EF4250381C935A3F0076DC70 /* Oxygen-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oxygen-Bold.ttf"; sourceTree = "<group>"; };
 		EF4250391C935A3F0076DC70 /* Oxygen-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oxygen-Regular.ttf"; sourceTree = "<group>"; };
 		EF4250451C9397480076DC70 /* Weather Alert Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Weather Alert Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EF4250471C9397480076DC70 /* MathTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathTests.swift; sourceTree = "<group>"; };
 		EF4250491C9397480076DC70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF4250521C9398750076DC70 /* Math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
+		EF5113031C9F7572000ECA25 /* MathTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathTests.swift; sourceTree = "<group>"; };
+		EF5113061C9F7572000ECA25 /* WeatherTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherTests.swift; sourceTree = "<group>"; };
+		EF5113091C9F758C000ECA25 /* FlickrImageProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrImageProviderTests.swift; sourceTree = "<group>"; };
 		EF5F54BD1C9F3A1700AC5CDE /* ImageProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
 		EF5F54BF1C9F3E0800AC5CDE /* FlickrImageProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrImageProvider.swift; sourceTree = "<group>"; };
 		EF73FDB71C62A2540075D168 /* Weather Alert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Weather Alert.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,7 +131,6 @@
 		EF75CFD01C9CA4FF00436843 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = Pods/GoogleMaps/Frameworks/GoogleMaps.framework; sourceTree = "<group>"; };
 		EF75CFD21C9CA52400436843 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = Pods/GoogleMaps/Frameworks/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
 		EFC4A2F51C94644F00ADEDA7 /* Weather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
-		EFC4A2F71C94648E00ADEDA7 /* WeatherTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherTests.swift; sourceTree = "<group>"; };
 		EFC4A3041C94889200ADEDA7 /* WeatherDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherDetailsViewController.swift; sourceTree = "<group>"; };
 		EFC4A3071C94893B00ADEDA7 /* WeatherDetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherDetailsView.swift; sourceTree = "<group>"; };
 		EFC4A30A1C94AE9400ADEDA7 /* WeatherDetailsHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherDetailsHeaderView.swift; sourceTree = "<group>"; };
@@ -333,9 +335,8 @@
 		EF4250461C9397480076DC70 /* Weather Alert Tests */ = {
 			isa = PBXGroup;
 			children = (
+				EF5113011C9F7572000ECA25 /* Core */,
 				EF4250491C9397480076DC70 /* Info.plist */,
-				EF4250471C9397480076DC70 /* MathTests.swift */,
-				EFC4A2F71C94648E00ADEDA7 /* WeatherTests.swift */,
 			);
 			path = "Weather Alert Tests";
 			sourceTree = "<group>";
@@ -349,6 +350,40 @@
 				EFC4A2F51C94644F00ADEDA7 /* Weather.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		EF5113011C9F7572000ECA25 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				EF5113021C9F7572000ECA25 /* Utilities */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		EF5113021C9F7572000ECA25 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				EF5113041C9F7572000ECA25 /* Networking */,
+				EF5113031C9F7572000ECA25 /* MathTests.swift */,
+				EF5113061C9F7572000ECA25 /* WeatherTests.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		EF5113041C9F7572000ECA25 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				EF5113051C9F7572000ECA25 /* Image Provider */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		EF5113051C9F7572000ECA25 /* Image Provider */ = {
+			isa = PBXGroup;
+			children = (
+				EF5113091C9F758C000ECA25 /* FlickrImageProviderTests.swift */,
+			);
+			path = "Image Provider";
 			sourceTree = "<group>";
 		};
 		EF5F54BC1C9F3A0C00AC5CDE /* Image Provider */ = {
@@ -682,8 +717,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EFC4A2F81C94648E00ADEDA7 /* WeatherTests.swift in Sources */,
-				EF4250481C9397480076DC70 /* MathTests.swift in Sources */,
+				EF5113081C9F7572000ECA25 /* WeatherTests.swift in Sources */,
+				EF51130A1C9F758C000ECA25 /* FlickrImageProviderTests.swift in Sources */,
+				EF5113071C9F7572000ECA25 /* MathTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -783,6 +819,11 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/GoogleMaps/Frameworks\"",
+					"$(SRCROOT)/Carthage/Build/iOS",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -800,6 +841,7 @@
 				INFOPLIST_FILE = "Weather Alert Tests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.justjoey.Weather-Alert-Tests";
@@ -814,8 +856,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/GoogleMaps/Frameworks\"",
+					"$(SRCROOT)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "Weather Alert Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.justjoey.Weather-Alert-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Weather Alert.app/Weather Alert";
@@ -826,8 +874,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/GoogleMaps/Frameworks\"",
+					"$(SRCROOT)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "Weather Alert Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.justjoey.Weather-Alert-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Weather Alert.app/Weather Alert";
@@ -838,8 +892,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/GoogleMaps/Frameworks\"",
+					"$(SRCROOT)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "Weather Alert Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.justjoey.Weather-Alert-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Weather Alert.app/Weather Alert";
