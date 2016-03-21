@@ -9,6 +9,19 @@
 import Foundation
 
 
+private let _cardinalDirections = ["N", "NNE", "NE", "ENW", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"]
+
+/**
+ Converts degrees into a cardinal direction (such as those shown on a compass) which is a more 
+ human readable format.
+ 
+ - parameter degrees: The number of degrees to convert into a cardinal direction
+ - returns: a cardinal direction
+*/
+func cardinalDirectionFromDegrees(degrees:Double) -> String {
+    let i = Int((degrees + 11.25)/22.5)
+    return _cardinalDirections[i%16]
+}
 
 
 /**

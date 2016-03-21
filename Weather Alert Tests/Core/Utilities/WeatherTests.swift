@@ -91,4 +91,42 @@ class WeatherTests : XCTestCase {
         XCTAssertEqual("Light Air".localized, windDescriptionFromSpeed(-3.4))
     }
     
+    func testThatCardinalDirectionConversionFromDegreesWorks() {
+        let n = 0.0
+        let nne = 22.5
+        let ne = 45.0
+        let enw = 67.5
+        let e = 90.0
+        let ese = 112.5
+        let se = 135.0
+        let sse = 157.5
+        let s = 180.0
+        let ssw = 202.5
+        let sw = 225.0
+        let wsw = 247.5
+        let w = 270.0
+        let wnw = 292.5
+        let nw = 315.0
+        let nnw = 337.5
+        let nTop = 360.0
+        
+        XCTAssertEqual(cardinalDirectionFromDegrees(n), "N")
+        XCTAssertEqual(cardinalDirectionFromDegrees(nne), "NNE")
+        XCTAssertEqual(cardinalDirectionFromDegrees(ne), "NE")
+        XCTAssertEqual(cardinalDirectionFromDegrees(enw), "ENW")
+        XCTAssertEqual(cardinalDirectionFromDegrees(e), "E")
+        XCTAssertEqual(cardinalDirectionFromDegrees(ese), "ESE")
+        XCTAssertEqual(cardinalDirectionFromDegrees(se), "SE")
+        XCTAssertEqual(cardinalDirectionFromDegrees(sse), "SSE")
+        XCTAssertEqual(cardinalDirectionFromDegrees(s), "S")
+        XCTAssertEqual(cardinalDirectionFromDegrees(ssw), "SSW")
+        XCTAssertEqual(cardinalDirectionFromDegrees(sw), "SW")
+        XCTAssertEqual(cardinalDirectionFromDegrees(wsw), "WSW")
+        XCTAssertEqual(cardinalDirectionFromDegrees(w), "W")
+        XCTAssertEqual(cardinalDirectionFromDegrees(wnw), "WNW")
+        XCTAssertEqual(cardinalDirectionFromDegrees(nw), "NW")
+        XCTAssertEqual(cardinalDirectionFromDegrees(nnw), "NNW")
+        XCTAssertEqual(cardinalDirectionFromDegrees(nTop), "N")
+    }
+    
 }
