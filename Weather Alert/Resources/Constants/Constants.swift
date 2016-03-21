@@ -7,5 +7,8 @@
 //
 
 import Foundation
+import UIKit
 
 typealias BasicCallback = (Bool, ErrorType?)->()
+
+let cityPlaceholderImage = UIImage.Asset.Placeholder_City.image

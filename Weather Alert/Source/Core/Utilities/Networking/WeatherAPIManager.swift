@@ -15,6 +15,8 @@ import RealmSwift
 enum WeatherAPIError: ErrorType {
     case FailedToCreateCity
     case FailedToUpdateImage
+    case InvalidJSON
+    case FailedToGenerateForecasts
 }
 
 
@@ -36,18 +38,19 @@ class WeatherAPIManager {
         let request = Alamofire.request(.GET, "\(baseUrl)/forecast", parameters: ["q": location, "appid":appId])
         
         request.responseJSON { response in
-            guard let jsonValue = response.result.value as? NSDictionary else { callback(false, nil); return }
-            guard let cityData = jsonValue["city"] as? NSDictionary else { callback(false, nil); return }
+            guard
+                let jsonValue = response.result.value as? NSDictionary,
+                let cityData = jsonValue["city"] as? NSDictionary,
+                let forecastList = jsonValue["list"] as? NSArray
+            else {
+                callback(false, WeatherAPIError.InvalidJSON); return
+            }
             
             do {
                 let realm = try Realm()
                 
-                guard let city = Mapper<City>().map(cityData) else { throw WeatherAPIError.FailedToCreateCity }
-                city.lastForecast = NSDate()
-                
-                try realm.write {
-                    realm.create(City.self, value: city, update: true)
-                }
+                let city = try generateCityWithData(cityData, realm: realm)
+                try generateForecastWithData(forecastList, forCity:city, realm: realm)
                 
                 WeatherAPIManager.updateLocationImage(city.id) { success, error in
                     callback(success, error)
@@ -60,8 +63,36 @@ class WeatherAPIManager {
         }
     }
     
+    private static func generateCityWithData(cityData:NSDictionary, realm:Realm) throws -> City {
+        guard let city = Mapper<City>().map(cityData) else { throw WeatherAPIError.FailedToCreateCity }
+        city.lastForecast = NSDate()
+        
+        try realm.write {
+            realm.create(City.self, value: city, update: true)
+        }
+        return city
+    }
+    
+    private static func generateForecastWithData(forecasts:NSArray, forCity city:City, realm:Realm) throws {
+        try forecasts.forEach { forecast in
+            guard let forecast = forecast as? NSDictionary else {
+                throw WeatherAPIError.FailedToGenerateForecasts
+            }
+            
+            guard let forecastObject = Mapper<Forecast>().map(forecast) else { throw WeatherAPIError.FailedToGenerateForecasts }
+            
+            try realm.write {
+                // Used to generate the primary key for the forecast
+                forecastObject.cityId = city.id
+                forecastObject.uniqueId = "\(forecastObject.cityId)-\(forecastObject.time)"
+                
+                realm.create(Forecast.self, value: forecastObject, update: true)
+            }
+        }
+    }
+    
     /**
-     Searches our image provider for an image that matches the city with the given id. Also 
+     Searches our image provider for an image that matches the city with the given id. Also
      updates the City in the DB with an URL that is an image matching the search query (location name)
     */
     static func updateLocationImage(locationId:Int, callback:BasicCallback) {

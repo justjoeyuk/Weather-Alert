@@ -9,6 +9,8 @@
 import Foundation
 
 
+
+
 /**
  Converts wind speed (mph) to a terminology users would be able to understand
  much easier. It uses the Beaufort Wind Scale from the official Weather.gov website:
