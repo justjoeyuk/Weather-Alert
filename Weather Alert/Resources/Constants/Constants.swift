@@ -8,4 +8,4 @@
 
 import Foundation
 
-typealias BasicCallback = (Bool, NSError?)->()
+typealias BasicCallback = (Bool, ErrorType?)->()

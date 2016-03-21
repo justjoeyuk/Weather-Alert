@@ -21,6 +21,7 @@ enum WeatherAPIError: ErrorType {
 class WeatherAPIManager {
     
     private static let baseUrl = DiskConfiguration.defaultConfig().settingForKey(.WeatherAPIBaseUrlKey)
+    private static let imageProvider = FlickrImageProvider()
     private static let appId = "dad87544773252d5799fc794a9d0a1f6"
     
     /**
@@ -48,13 +49,14 @@ class WeatherAPIManager {
                     realm.create(City.self, value: city, update: true)
                 }
                 
-                WeatherAPIManager.updateLocationImage(city.id)
+                WeatherAPIManager.updateLocationImage(city.id) { success, error in
+                    callback(success, error)
+                }
             }
             catch {
                 print("*** ERROR IN FORECAST RESPONSE: \(error) ***")
+                callback(false, error)
             }
-            
-            callback(true, nil)
         }
     }
     
@@ -62,19 +64,23 @@ class WeatherAPIManager {
      Searches our image provider for an image that matches the city with the given id. Also 
      updates the City in the DB with an URL that is an image matching the search query (location name)
     */
-    static func updateLocationImage(locationId:Int) {
+    static func updateLocationImage(locationId:Int, callback:BasicCallback) {
         do {
             let realm = try Realm()
             guard let city = realm.objectForPrimaryKey(City.self, key: locationId) else { throw WeatherAPIError.FailedToUpdateImage }
             
-            let prov = FlickrImageProvider()
-            prov.fetchImageURLForCity(city) { url, error in
-                guard let url = url else { print("*** ERROR: \(error) ***"); return }
-                print(url)
+            self.imageProvider.fetchImageURLForCity(city) { url, error in
+                if let url = url {
+                    city.applyImageUrl(url.absoluteString)
+                }
+                else { print("*** ERROR: \(error) ***") }
+                
+                callback(true, nil)
             }
         }
         catch {
             print("Could not update image for location with ID: \(locationId). \(error)")
+            callback(false, error)
         }
     }
     

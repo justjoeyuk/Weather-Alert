@@ -24,9 +24,21 @@ class FlickrImageProvider : ImageProvider {
     
     
     func fetchImageURLForCity(city:City, callback:ImageProviderCallback) {
-        
         let method = "flickr.photos.search"
-        let params: [String:AnyObject] = ["format":"json", "method": method, "api_key":apiKey, "safe_search":1, "content_type":1, "geo_context":2, "lat":city.latitude, "lon":city.longitude, "radius":5, "per_page":1, "nojsoncallback":1,"sort":"interestingness-desc"]
+        
+        let params: [String:AnyObject] = [
+            "format":"json",
+            "method": method,
+            "api_key":apiKey,
+            "safe_search":1,
+            "content_type":1,
+            "geo_context":2,
+            "lat":city.latitude,
+            "lon":city.longitude,
+            "accuracy":6,
+            "per_page":1,
+            "nojsoncallback":1,
+            "sort":"date-posted-desc" ]
         
         let request = Alamofire.request(.GET, baseEndpoint, parameters: params)
         request.responseJSON { response in
@@ -45,6 +57,8 @@ class FlickrImageProvider : ImageProvider {
         }
     }
     
+    /** Generates a URL with given photo data. It follows the guidelines set over at
+        https://www.flickr.com/services/api/misc.urls.html */
     func generatePhotoUrlWithData(photoData:NSDictionary) -> NSURL? {
         let template = "https://farm{farm}.staticflickr.com/{server}/{photo-id}_{photo-secret}.jpg"
         

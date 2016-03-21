@@ -53,7 +53,7 @@ extension HomeViewController : GMSAutocompleteViewControllerDelegate {
     // Handle the user's selection.
     func viewController(viewController: GMSAutocompleteViewController, didAutocompleteWithPlace place: GMSPlace) {
         WeatherAPIManager.gatherFiveDayForecast(place.formattedAddress) { success, error in
-            print("success")
+            print("Forecast Result for \(place.name): \(success ? "true" : "false")")
         }
         
         self.dismissViewControllerAnimated(true, completion: nil)

@@ -28,6 +28,19 @@ class City : Object, Mappable {
         self.init()
     }
     
+    func applyImageUrl(url:String) {
+        do {
+            let realm = try Realm()
+
+            try realm.write {
+                self.imageUrl = url
+            }
+        }
+        catch {
+            
+        }
+    }
+    
     func mapping(map: Map) {
         id <- map["id"]
         name <- map["name"]
