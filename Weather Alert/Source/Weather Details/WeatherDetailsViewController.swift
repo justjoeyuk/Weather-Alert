@@ -87,7 +87,7 @@ class WeatherDetailsViewController : BaseVC {
     func scrollToCurrentHour(animate:Bool = true) {
         let hour = NSDate().currentHour()
         
-        detailView.todayCollectionView.scrollToItemAtIndexPath(NSIndexPath(forRow: hour, inSection: 0), atScrollPosition: .Left, animated: animate)
+        detailView.todayCollectionView.scrollToItemAtIndexPath(NSIndexPath(forRow: hour % 3, inSection: 0), atScrollPosition: .Left, animated: animate)
     }
     
     func loadCity(city:City) {

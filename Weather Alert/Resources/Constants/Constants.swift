@@ -21,13 +21,9 @@ let kThreeHours:NSTimeInterval = 10800
 // Placeholder image for a city
 let kCityPlaceholderImage = UIImage.Asset.Placeholder_City.image
 
-// Height of the cells on the home page
+
 let kWeatherCardCellHeight = CGFloat(150)
-
-// Identifier for cells on the home page
 let kWeatherCardCellIdentifier = "WeatherCardCell"
-
-// Identifier for cells on the modification page
 let kModificationCellIdentifier = "ModifyCityCell"
 
 

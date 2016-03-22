@@ -14,18 +14,21 @@ import UIKit
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! TodayForecastCollectionViewCell
         
-        let cellHour = indexPath.row
-        let currentHour = NSDate().currentHour()
+        let cellHour = indexPath.row * 3
+        let currentHour = Int(floor(Float(NSDate().currentHour()) / 3))
+        
+        print(currentHour)
+        
         let timeText = String(format: "%02d:00", cellHour)
         
         cell.timeLabel.text = timeText
-        cell.backgroundColor = cellHour == currentHour ? UIColor.blackColor() : UIColor.darkBackgroundColor()
+        cell.backgroundColor = indexPath.row == currentHour ? UIColor.blackColor() : UIColor.darkBackgroundColor()
         
         return cell
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 24
+        return 8
     }
     
 }
