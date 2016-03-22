@@ -10,6 +10,11 @@ import UIKit
 import RealmSwift
 
 
+/**
+ This is a datasource that enables the user to modify the order / existence of the cities.
+ The user can delete cities and rearrange them to their liking. Cities have a priority which 
+ determines how they are shown to the user.
+*/
 @objc class ModifyCitiesDatasource : NSObject, UITableViewDataSource {
     
     let cities:Results<City>
@@ -42,26 +47,35 @@ import RealmSwift
         let destPriority = destinationIndexPath.row
         
         let sourceCity = cities[sourcePriority]
-        let destCity = cities[destPriority]
+        
+        let affectedCities = sourcePriority < destPriority ? realm.objects(City.self).filter("priority > %d AND priority <= %d", sourcePriority, destPriority) : realm.objects(City.self).filter("priority < %d AND priority >= %d", sourcePriority, destPriority)
         
         do {
             try realm.write {
+                affectedCities.forEach { city in
+                    city.priority += sourcePriority < destPriority ? -1 : 1
+                }
                 sourceCity.priority = destPriority
-                destCity.priority = sourcePriority
             }
         }
         catch { print("Problem changing priority of cities \(error)") }
+        
+        after(0.3) {
+            runMain {
+                tableView.reloadData()
+            }
+        }
     }
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         guard editingStyle == .Delete else { return }
         let cityToDelete = cities[indexPath.row]
         
-        let lowerCities = realm.objects(City.self).filter("priority > %d", cityToDelete.priority)
+        let higherCities = realm.objects(City.self).filter("priority > %d", cityToDelete.priority)
         
         do {
             try realm.write {
-                lowerCities.forEach { city in
+                higherCities.forEach { city in
                     city.priority -= 1
                 }
                 
