@@ -12,13 +12,28 @@ import UIKit
 typealias BasicCallback = (Bool, ErrorType?)->()
 typealias EmptyCallback = ()->()
 
+
+// MARK: Constant Values
+
 // Number of seconds in 3 hours
-let threeHours:NSTimeInterval = 10800
+let kThreeHours:NSTimeInterval = 10800
 
 // Placeholder image for a city
-let cityPlaceholderImage = UIImage.Asset.Placeholder_City.image
+let kCityPlaceholderImage = UIImage.Asset.Placeholder_City.image
+
+// Height of the cells on the home page
+let kWeatherCardCellHeight = CGFloat(150)
+
+// Identifier for cells on the home page
+let kWeatherCardCellIdentifier = "WeatherCardCell"
+
+// Identifier for cells on the modification page
+let kModificationCellIdentifier = "ModifyCityCell"
 
 
+// MARK: Global Methods
+
+/** Executes the callback after the given delay (in seconds) */
 func after(delay:Double, callback:()->()) {
     let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC)))
     dispatch_after(delayTime, dispatch_get_main_queue()) {
@@ -26,6 +41,7 @@ func after(delay:Double, callback:()->()) {
     }
 }
 
+/** Runs the given block async */
 func runAsync(asyncWork:EmptyCallback) {
     let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
     dispatch_async(dispatch_get_global_queue(priority, 0)) {
@@ -33,6 +49,7 @@ func runAsync(asyncWork:EmptyCallback) {
     }
 }
 
+/** Runs the given block on the main (UI) thread */
 func runMain(mainThreadWork:EmptyCallback) {
     dispatch_async(dispatch_get_main_queue()) {
         mainThreadWork()

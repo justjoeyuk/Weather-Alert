@@ -35,8 +35,10 @@ import Kingfisher
     }
     
     
+    // MARK: UITableViewDataSource Methods
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCellWithIdentifier("WeatherCardCell", forIndexPath: indexPath) as? WeatherCardTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCellWithIdentifier(kWeatherCardCellIdentifier, forIndexPath: indexPath) as? WeatherCardTableViewCell else { return UITableViewCell() }
         
         let city = cityList[indexPath.row]
         guard let forecast = Forecast.getLatestForecastForCity(city, realm: realm) else { return cell }

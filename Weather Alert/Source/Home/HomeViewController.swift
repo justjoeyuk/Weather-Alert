@@ -26,7 +26,7 @@ class HomeViewController : BaseVC {
         let weatherCardTable = homeView.weatherCardTableView
         weatherCardDatasource.tableView = weatherCardTable
         
-        weatherCardTable.registerClass(WeatherCardTableViewCell.self, forCellReuseIdentifier: "WeatherCardCell")
+        weatherCardTable.registerClass(WeatherCardTableViewCell.self, forCellReuseIdentifier: kWeatherCardCellIdentifier)
         weatherCardTable.separatorStyle = .None
         weatherCardTable.dataSource = weatherCardDatasource
         weatherCardTable.delegate = self
@@ -59,7 +59,6 @@ class HomeViewController : BaseVC {
 
 extension HomeViewController : GMSAutocompleteViewControllerDelegate {
     
-    // Handle the user's selection.
     func viewController(viewController: GMSAutocompleteViewController, didAutocompleteWithPlace place: GMSPlace) {
         WeatherAPIManager.gatherFiveDayForecast(place.formattedAddress) { success, error in
             print("Forecast Result for \(place.name): \(success ? "true" : "false")")
@@ -68,14 +67,11 @@ extension HomeViewController : GMSAutocompleteViewControllerDelegate {
     }
     
     func viewController(viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: NSError) {
-        // TODO: handle the error.
         print("Error: \(error.description)")
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    // User canceled the operation.
     func wasCancelled(viewController: GMSAutocompleteViewController) {
-        print("Autocomplete was cancelled.")
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -84,11 +80,11 @@ extension HomeViewController : GMSAutocompleteViewControllerDelegate {
 extension HomeViewController : UITableViewDelegate {
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 150
+        return kWeatherCardCellHeight
     }
     
     func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 150
+        return kWeatherCardCellHeight
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

@@ -37,7 +37,7 @@ class WeatherCardTableViewCell : BaseTableViewCell {
     
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: .Default, reuseIdentifier: "WeatherCardCell")
+        super.init(style: .Default, reuseIdentifier: kWeatherCardCellIdentifier)
     }
     
     
@@ -130,6 +130,10 @@ class WeatherCardTableViewCell : BaseTableViewCell {
     // MARK: Update Cell
     
     func updateWithCity(city:City, forecast:Forecast) {
+        /** TODO: I have considered making this implementation and have it in a protocol, I have
+         two views in the app that do this exact setup. It's a pretty bad case of DRY. However,
+         time restrictions are in place. */
+        
         let windDirection = Double(forecast.windDirection)
         let windSpeed = Double(forecast.windSpeed)
         
@@ -141,7 +145,7 @@ class WeatherCardTableViewCell : BaseTableViewCell {
         windDirectionLabel.text = cardinalDirectionFromDegrees(windDirection)
         windDirectionView.setWindDirection(windDirection)
         
-        backgroundImageView.kf_setImageWithURL(NSURL(string: city.imageUrl)!, placeholderImage: cityPlaceholderImage)
+        backgroundImageView.kf_setImageWithURL(NSURL(string: city.imageUrl)!, placeholderImage: kCityPlaceholderImage)
         
         animatedTurbineView.applyRotationAnimation(100.0/windSpeed)
     }

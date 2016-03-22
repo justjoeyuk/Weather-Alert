@@ -54,6 +54,10 @@ class WeatherDetailsView : BaseView {
     }
     
     func updateWithCity(city:City, withForecast forecast:Forecast) {
+        /** TODO: I have considered making this implementation and have it in a protocol, I have 
+            two views in the app that do this exact setup. It's a pretty bad case of DRY. However, 
+            time restrictions are in place. */
+        
         let windDirection = Double(forecast.windDirection)
         let windSpeed = Double(forecast.windSpeed)
         
@@ -65,7 +69,7 @@ class WeatherDetailsView : BaseView {
         headerView.windDirectionView.setWindDirection(windDirection)
         headerView.windDirectionLabel.text = cardinalDirectionFromDegrees(windDirection)
         
-        headerView.backgroundImageView.kf_setImageWithURL(NSURL(string: city.imageUrl)!, placeholderImage: cityPlaceholderImage)
+        headerView.backgroundImageView.kf_setImageWithURL(NSURL(string: city.imageUrl)!, placeholderImage: kCityPlaceholderImage)
         
         headerView.animatedTurbineView.applyRotationAnimation(100.0/windSpeed)
     }

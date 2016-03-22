@@ -15,6 +15,7 @@ class ModifyCitiesViewController : BaseVC {
     let datasource: ModifyCitiesDatasource
     var modifyView: ModifyCitiesView { return self.view as! ModifyCitiesView }
     
+    
     init(cities:Results<City>) {
         self.datasource = ModifyCitiesDatasource(cities: cities)
         super.init()
@@ -31,7 +32,7 @@ class ModifyCitiesViewController : BaseVC {
     override func viewDidLoad() {
         title = "Cities".localized
         
-        modifyView.tableView.registerClass(ModifyCityCell.self, forCellReuseIdentifier: "ModifyCityCell")
+        modifyView.tableView.registerClass(ModifyCityCell.self, forCellReuseIdentifier: kModificationCellIdentifier)
         modifyView.tableView.dataSource = datasource
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "completeModify")

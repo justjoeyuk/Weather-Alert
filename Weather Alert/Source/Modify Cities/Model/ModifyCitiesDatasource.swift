@@ -28,7 +28,7 @@ import RealmSwift
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCellWithIdentifier("ModifyCityCell", forIndexPath: indexPath) as? ModifyCityCell
+        guard let cell = tableView.dequeueReusableCellWithIdentifier(kModificationCellIdentifier, forIndexPath: indexPath) as? ModifyCityCell
         else { return UITableViewCell() }
         
         let city = cities[indexPath.row]
