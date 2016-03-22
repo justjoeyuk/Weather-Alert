@@ -16,6 +16,7 @@ class City : Object, Mappable {
     dynamic var name = ""
     dynamic var lastForecast = NSDate()
     dynamic var imageUrl = ""
+    dynamic var priority:Int = 0
     dynamic var longitude:Double = 0
     dynamic var latitude:Double = 0
     
@@ -37,7 +38,7 @@ class City : Object, Mappable {
             }
         }
         catch {
-            
+            print("Error trying to save image URL to city. \(error)")
         }
     }
     

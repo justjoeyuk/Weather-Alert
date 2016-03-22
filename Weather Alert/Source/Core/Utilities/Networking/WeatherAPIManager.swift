@@ -35,7 +35,7 @@ class WeatherAPIManager {
     static func gatherFiveDayForecast(location:String?, callback:BasicCallback) {
         guard let location = location else { callback(false, nil); return }
         
-        let request = Alamofire.request(.GET, "\(baseUrl)/forecast", parameters: ["q": location, "appid":appId])
+        let request = Alamofire.request(.GET, "\(baseUrl)/forecast", parameters: ["q": location, "units":"imperial", "appid":appId])
         
         request.responseJSON { response in
             guard
@@ -65,6 +65,13 @@ class WeatherAPIManager {
     
     private static func generateCityWithData(cityData:NSDictionary, realm:Realm) throws -> City {
         guard let city = Mapper<City>().map(cityData) else { throw WeatherAPIError.FailedToCreateCity }
+        
+        // If the city does not exist, we give it a new priority (end of list)
+        if realm.objectForPrimaryKey(City.self, key: city.id) == nil {
+            let count = realm.objects(City.self).count
+            city.priority = count
+        }
+        
         city.lastForecast = NSDate()
         
         try realm.write {

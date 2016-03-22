@@ -18,6 +18,10 @@
 		EF0570F11C791CDC00B1D105 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF0570D61C791CDC00B1D105 /* Assets.xcassets */; };
 		EF0570F21C791CDC00B1D105 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF0570D71C791CDC00B1D105 /* LaunchScreen.storyboard */; };
 		EF0570F31C791CDC00B1D105 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0570DB1C791CDC00B1D105 /* AppDelegate.swift */; };
+		EF076E1D1CA0C85F00937CDB /* ModifyCitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF076E1C1CA0C85F00937CDB /* ModifyCitiesViewController.swift */; };
+		EF076E201CA0C88E00937CDB /* ModifyCitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF076E1F1CA0C88E00937CDB /* ModifyCitiesView.swift */; };
+		EF076E231CA0C97200937CDB /* ModifyCitiesDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF076E221CA0C97200937CDB /* ModifyCitiesDatasource.swift */; };
+		EF076E261CA0CD5600937CDB /* ModifyCityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF076E251CA0CD5600937CDB /* ModifyCityCell.swift */; };
 		EF38B0711C9B5C29005B29CD /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF38B0701C9B5C29005B29CD /* Fonts.swift */; };
 		EF38B07B1C9C68D5005B29CD /* NSDate+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF38B0751C9C68D5005B29CD /* NSDate+Extensions.swift */; };
 		EF38B07C1C9C68D5005B29CD /* Number+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF38B0761C9C68D5005B29CD /* Number+Extensions.swift */; };
@@ -25,7 +29,6 @@
 		EF38B07E1C9C68D5005B29CD /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF38B0781C9C68D5005B29CD /* UILabel+Extensions.swift */; };
 		EF38B07F1C9C68D5005B29CD /* UIScrollView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF38B0791C9C68D5005B29CD /* UIScrollView+Extensions.swift */; };
 		EF38B0801C9C68D5005B29CD /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF38B07A1C9C68D5005B29CD /* UIView+Extensions.swift */; };
-		EF3B0F581C9C869000CD5F83 /* AddCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF3B0F571C9C869000CD5F83 /* AddCityViewController.swift */; };
 		EF4250291C92277E0076DC70 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4250281C92277E0076DC70 /* HomeViewController.swift */; };
 		EF42502B1C9228010076DC70 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF42502A1C9228010076DC70 /* HomeView.swift */; };
 		EF42502E1C931E9D0076DC70 /* WeatherCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF42502D1C931E9D0076DC70 /* WeatherCardTableViewCell.swift */; };
@@ -102,6 +105,10 @@
 		EF0570D61C791CDC00B1D105 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF0570D81C791CDC00B1D105 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EF0570DB1C791CDC00B1D105 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EF076E1C1CA0C85F00937CDB /* ModifyCitiesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifyCitiesViewController.swift; sourceTree = "<group>"; };
+		EF076E1F1CA0C88E00937CDB /* ModifyCitiesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifyCitiesView.swift; sourceTree = "<group>"; };
+		EF076E221CA0C97200937CDB /* ModifyCitiesDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifyCitiesDatasource.swift; sourceTree = "<group>"; };
+		EF076E251CA0CD5600937CDB /* ModifyCityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifyCityCell.swift; sourceTree = "<group>"; };
 		EF38B0701C9B5C29005B29CD /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		EF38B0751C9C68D5005B29CD /* NSDate+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Extensions.swift"; sourceTree = "<group>"; };
 		EF38B0761C9C68D5005B29CD /* Number+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Number+Extensions.swift"; sourceTree = "<group>"; };
@@ -109,7 +116,6 @@
 		EF38B0781C9C68D5005B29CD /* UILabel+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
 		EF38B0791C9C68D5005B29CD /* UIScrollView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Extensions.swift"; sourceTree = "<group>"; };
 		EF38B07A1C9C68D5005B29CD /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
-		EF3B0F571C9C869000CD5F83 /* AddCityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCityViewController.swift; sourceTree = "<group>"; };
 		EF4250281C92277E0076DC70 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		EF42502A1C9228010076DC70 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		EF42502D1C931E9D0076DC70 /* WeatherCardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherCardTableViewCell.swift; sourceTree = "<group>"; };
@@ -230,7 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				EF0570DA1C791CDC00B1D105 /* Core */,
-				EF3B0F561C9C867B00CD5F83 /* Add City */,
+				EF076E1B1CA0C85400937CDB /* Modify Cities */,
 				EF4250241C921C1E0076DC70 /* Home */,
 				EFC4A3021C9487BF00ADEDA7 /* Weather Details */,
 			);
@@ -247,6 +253,41 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
+		EF076E1B1CA0C85400937CDB /* Modify Cities */ = {
+			isa = PBXGroup;
+			children = (
+				EF076E211CA0C96900937CDB /* Model */,
+				EF076E1E1CA0C88400937CDB /* View */,
+				EF076E1C1CA0C85F00937CDB /* ModifyCitiesViewController.swift */,
+			);
+			path = "Modify Cities";
+			sourceTree = "<group>";
+		};
+		EF076E1E1CA0C88400937CDB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EF076E241CA0CD4F00937CDB /* Cells */,
+				EF076E1F1CA0C88E00937CDB /* ModifyCitiesView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EF076E211CA0C96900937CDB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EF076E221CA0C97200937CDB /* ModifyCitiesDatasource.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EF076E241CA0CD4F00937CDB /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				EF076E251CA0CD5600937CDB /* ModifyCityCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		EF38B0741C9C68D5005B29CD /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -258,14 +299,6 @@
 				EF38B07A1C9C68D5005B29CD /* UIView+Extensions.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		EF3B0F561C9C867B00CD5F83 /* Add City */ = {
-			isa = PBXGroup;
-			children = (
-				EF3B0F571C9C869000CD5F83 /* AddCityViewController.swift */,
-			);
-			path = "Add City";
 			sourceTree = "<group>";
 		};
 		EF4250241C921C1E0076DC70 /* Home */ = {
@@ -722,6 +755,7 @@
 				EF42502B1C9228010076DC70 /* HomeView.swift in Sources */,
 				EF38B07D1C9C68D5005B29CD /* String+Extensions.swift in Sources */,
 				EF4250531C9398750076DC70 /* Math.swift in Sources */,
+				EF076E1D1CA0C85F00937CDB /* ModifyCitiesViewController.swift in Sources */,
 				EFC4A3081C94893B00ADEDA7 /* WeatherDetailsView.swift in Sources */,
 				EFFAD7381C9CB32D002F9399 /* BaseVC.swift in Sources */,
 				EFC4A3141C94EAC800ADEDA7 /* Colors.swift in Sources */,
@@ -731,12 +765,13 @@
 				EFFAD73B1C9CB32D002F9399 /* DiskConfiguration.swift in Sources */,
 				EFC4A3051C94889200ADEDA7 /* WeatherDetailsViewController.swift in Sources */,
 				EFFAD73A1C9CB32D002F9399 /* Configuration.swift in Sources */,
+				EF076E201CA0C88E00937CDB /* ModifyCitiesView.swift in Sources */,
 				EF38B07C1C9C68D5005B29CD /* Number+Extensions.swift in Sources */,
 				EFFAD7391C9CB32D002F9399 /* BaseView.swift in Sources */,
 				EFC4A30B1C94AE9400ADEDA7 /* WeatherDetailsHeaderView.swift in Sources */,
 				EFC4A30D1C94D56300ADEDA7 /* TodayForecastDataSource.swift in Sources */,
-				EF3B0F581C9C869000CD5F83 /* AddCityViewController.swift in Sources */,
 				EF38B0801C9C68D5005B29CD /* UIView+Extensions.swift in Sources */,
+				EF076E261CA0CD5600937CDB /* ModifyCityCell.swift in Sources */,
 				EF38B0711C9B5C29005B29CD /* Fonts.swift in Sources */,
 				EFFAD7471C9CB34E002F9399 /* WeatherPageViewController.swift in Sources */,
 				EFFAD7361C9CB32D002F9399 /* BaseCollectionViewCell.swift in Sources */,
@@ -746,6 +781,7 @@
 				EF4250321C93266D0076DC70 /* WeatherCardTableViewDataSource.swift in Sources */,
 				EF61F1401C9F8828005F75BD /* Forecast.swift in Sources */,
 				EFFAD73C1C9CB32D002F9399 /* City.swift in Sources */,
+				EF076E231CA0C97200937CDB /* ModifyCitiesDatasource.swift in Sources */,
 				EFFAD7461C9CB34E002F9399 /* WeatherPageDatasource.swift in Sources */,
 				EF38B07E1C9C68D5005B29CD /* UILabel+Extensions.swift in Sources */,
 				EF5F54C01C9F3E0800AC5CDE /* FlickrImageProvider.swift in Sources */,

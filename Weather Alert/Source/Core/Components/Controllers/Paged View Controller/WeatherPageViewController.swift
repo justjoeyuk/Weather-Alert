@@ -7,22 +7,25 @@
 //
 
 import UIKit
+import RealmSwift
 
 
 class WeatherPageViewController : UIPageViewController {
     
-    let pageDataSource = WeatherPageDatasource()
+    let pageDataSource:WeatherPageDatasource
     
     
     // MARK: Initializing
     
-    override init(transitionStyle style: UIPageViewControllerTransitionStyle, navigationOrientation: UIPageViewControllerNavigationOrientation, options: [String : AnyObject]?) {
-        super.init(transitionStyle: style, navigationOrientation: navigationOrientation, options: options)
+    init(cities:Results<City>) {
+        pageDataSource = WeatherPageDatasource(cities: cities)
+        super.init(transitionStyle: .Scroll, navigationOrientation: .Horizontal, options: nil)
+        
         setup()
     }
 
     required convenience init?(coder: NSCoder) {
-        self.init(transitionStyle:.Scroll, navigationOrientation:.Horizontal, options:nil)
+        fatalError("Please use the designated initializer")
     }
     
     

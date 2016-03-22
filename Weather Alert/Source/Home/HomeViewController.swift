@@ -31,7 +31,14 @@ class HomeViewController : BaseVC {
         weatherCardTable.dataSource = weatherCardDatasource
         weatherCardTable.delegate = self
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage.Asset.ListIcon.image, style: .Plain, target: self, action: "modifyCities")
+        
         homeView.addCityButton.addTarget(self, action: "addCity", forControlEvents: .TouchUpInside)
+    }
+    
+    func modifyCities() {
+        let modifyVC = ModifyCitiesViewController(cities: weatherCardDatasource.cityList)
+        navigationController?.pushViewController(modifyVC, animated: true)
     }
     
     func addCity() {
@@ -54,8 +61,6 @@ extension HomeViewController : GMSAutocompleteViewControllerDelegate {
     func viewController(viewController: GMSAutocompleteViewController, didAutocompleteWithPlace place: GMSPlace) {
         WeatherAPIManager.gatherFiveDayForecast(place.formattedAddress) { success, error in
             print("Forecast Result for \(place.name): \(success ? "true" : "false")")
-            
-            
             self.dismissViewControllerAnimated(true, completion: nil)
         }
     }
@@ -85,7 +90,8 @@ extension HomeViewController : UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let pvc = WeatherPageViewController(transitionStyle: .Scroll, navigationOrientation: .Horizontal, options: nil)
+        let pvc = WeatherPageViewController(cities: weatherCardDatasource.cityList)
+        
         pvc.loadInitialViewController(indexPath.row)
         pvc.title = "Forecast".localized
         

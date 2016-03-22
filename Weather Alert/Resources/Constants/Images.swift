@@ -6,6 +6,7 @@ import UIKit
 extension UIImage {
   enum Asset: String {
     case Arrow = "Arrow"
+    case ListIcon = "ListIcon"
     case Mock_Location = "Mock Location"
     case Placeholder_City = "Placeholder City"
     case Turbine = "Turbine"

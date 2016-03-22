@@ -30,8 +30,16 @@ class Forecast : Object, Mappable {
     
     func mapping(map: Map) {
         time <- map["dt"]
+        
         windSpeed <- map["wind.speed"]
         windDirection <- map["wind.deg"]
+    }
+    
+    static func getLatestForecastForCity(city:City, realm:Realm) -> Forecast? {
+        let currentTime = NSDate().timeIntervalSince1970
+        let offsetFilterMax = currentTime + (threeHours - 1)
+        
+        return realm.objects(Forecast.self).filter("cityId = %@ AND time < %d AND time > %d", city.id, offsetFilterMax, currentTime).first
     }
     
 }

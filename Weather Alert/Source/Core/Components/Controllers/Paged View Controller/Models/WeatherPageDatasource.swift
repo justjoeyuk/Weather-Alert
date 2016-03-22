@@ -7,11 +7,17 @@
 //
 
 import UIKit
+import RealmSwift
 
 
 @objc class WeatherPageDatasource : NSObject, UIPageViewControllerDataSource {
     
-    let indexs = [NSNumber(int: 1), NSNumber(int: 2), NSNumber(int: 3), NSNumber(int: 4), NSNumber(int: 5)]
+    let cities:Results<City>
+    
+    init(cities:Results<City>) {
+        self.cities = cities
+        super.init()
+    }
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
         let viewController = viewController as! WeatherDetailsViewController
@@ -29,7 +35,7 @@ import UIKit
         let viewController = viewController as! WeatherDetailsViewController
         let index = viewController.pageIndex
         
-        guard index <= indexs.count else { return nil }
+        guard index < cities.count - 1 else { return nil }
         
         let newIndex = index + 1
         let newVC = viewControllerForIndex(newIndex)
@@ -40,7 +46,7 @@ import UIKit
     func viewControllerForIndex(index:Int) -> WeatherDetailsViewController {
         let viewController = WeatherDetailsViewController()
         
-        viewController.applyModel("Page \(index)")
+        viewController.loadCity(cities[index])
         viewController.pageIndex = index
         
         return viewController

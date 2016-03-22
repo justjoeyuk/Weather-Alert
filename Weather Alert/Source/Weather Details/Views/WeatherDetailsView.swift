@@ -20,6 +20,7 @@ class WeatherDetailsView : BaseView {
     
     override func setup() {
         backgroundColor = UIColor.whiteColor()
+        clipsToBounds = true
         
         setupHeaderView()
         setupTodayCollectionView()
@@ -50,6 +51,23 @@ class WeatherDetailsView : BaseView {
         dailyOverviewTableView.backgroundColor = UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
         
         addSubview(dailyOverviewTableView)
+    }
+    
+    func updateWithCity(city:City, withForecast forecast:Forecast) {
+        let windDirection = Double(forecast.windDirection)
+        let windSpeed = Double(forecast.windSpeed)
+        
+        headerView.cityNameLabel.text = city.name
+        
+        headerView.windSpeedLabel.text = String(format: "%.1f mph", windSpeed)
+        headerView.windStrengthLabel.text = windDescriptionFromSpeed(windSpeed)
+        
+        headerView.windDirectionView.setWindDirection(windDirection)
+        headerView.windDirectionLabel.text = cardinalDirectionFromDegrees(windDirection)
+        
+        headerView.backgroundImageView.kf_setImageWithURL(NSURL(string: city.imageUrl)!, placeholderImage: cityPlaceholderImage)
+        
+        headerView.animatedTurbineView.applyRotationAnimation(100.0/windSpeed)
     }
     
 }

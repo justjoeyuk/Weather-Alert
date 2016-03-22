@@ -26,39 +26,22 @@ import Kingfisher
         
         super.init()
         
-        self.token = realm.objects(City.self).addNotificationBlock { results, error in
+        self.token = realm.objects(City.self).sorted("priority", ascending: true).addNotificationBlock { results, error in
             guard let results = results else { return }
             self.cityList = results
             
-            self.tableView?.reloadData()
+            self.tableView?.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Automatic)
         }
     }
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCellWithIdentifier("WeatherCardCell", forIndexPath: indexPath) as? WeatherCardTableViewCell else { return UITableViewCell() }
+        
         let city = cityList[indexPath.row]
-    
-        let currentTime = NSDate().timeIntervalSince1970
-        let maxOffset:Double = 10800
-        let offsetFilterMax = currentTime + (maxOffset - 1)
+        guard let forecast = Forecast.getLatestForecastForCity(city, realm: realm) else { return cell }
         
-        // This could have been done in a more efficient manner, but for the sake of time, it wasn't.
-        guard let forecast = realm.objects(Forecast.self).filter("cityId = %@ AND time < %d AND time > %d", city.id, offsetFilterMax, currentTime).first else { return cell }
-        let windDirection = Double(forecast.windDirection)
-        let windSpeed = Double(forecast.windSpeed)
-        
-        cell.cityLabel.text = city.name
-        cell.windSpeedLabel.text = "\(windSpeed) mph"
-        cell.windStrengthLabel.text = windDescriptionFromSpeed(windSpeed)
-        cell.windDirectionLabel.text = "SW"
-        cell.windDirectionView.setWindDirection(windDirection)
-        
-        cell.backgroundImageView.kf_setImageWithURL(NSURL(string: city.imageUrl)!, placeholderImage: cityPlaceholderImage)
-        
-        cell.animatedTurbineView.applyRotationAnimation(100.0/25)
-        cell.updateWithModel(nil)
-        
+        cell.updateWithCity(city, forecast: forecast)
         return cell
     }
     

@@ -11,4 +11,8 @@ import UIKit
 
 typealias BasicCallback = (Bool, ErrorType?)->()
 
+// Number of seconds in 3 hours
+let threeHours:NSTimeInterval = 10800
+
+// Placeholder image for a city
 let cityPlaceholderImage = UIImage.Asset.Placeholder_City.image

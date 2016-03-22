@@ -129,8 +129,21 @@ class WeatherCardTableViewCell : BaseTableViewCell {
     
     // MARK: Update Cell
     
-    func updateWithModel(model:AnyObject!) {
-        //animatedTurbineView.applyRotationAnimation(4)
+    func updateWithCity(city:City, forecast:Forecast) {
+        let windDirection = Double(forecast.windDirection)
+        let windSpeed = Double(forecast.windSpeed)
+        
+        cityLabel.text = city.name
+        
+        windSpeedLabel.text = String(format: "%.1f mph", windSpeed)
+        windStrengthLabel.text = windDescriptionFromSpeed(windSpeed)
+        
+        windDirectionLabel.text = cardinalDirectionFromDegrees(windDirection)
+        windDirectionView.setWindDirection(windDirection)
+        
+        backgroundImageView.kf_setImageWithURL(NSURL(string: city.imageUrl)!, placeholderImage: cityPlaceholderImage)
+        
+        animatedTurbineView.applyRotationAnimation(100.0/windSpeed)
     }
     
 }

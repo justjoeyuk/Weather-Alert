@@ -33,7 +33,8 @@ class WindDirectionView : UIImageView {
       - parameter degrees: The direction of the wind, in degrees
     */
     func setWindDirection(degrees:Double) {
-        let transform = CGAffineTransformRotate(CGAffineTransformIdentity, CGFloat(DegreesToRadians(degrees)));
+        // add 180 to the transform to show what direction the wind is going, rather than direction it's coming from
+        let transform = CGAffineTransformRotate(CGAffineTransformIdentity, CGFloat(DegreesToRadians(degrees + 180)));
         self.transform = transform;
     }
     

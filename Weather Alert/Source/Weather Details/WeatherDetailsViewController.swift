@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 
 class WeatherDetailsViewController : BaseVC {
@@ -89,8 +90,14 @@ class WeatherDetailsViewController : BaseVC {
         detailView.todayCollectionView.scrollToItemAtIndexPath(NSIndexPath(forRow: hour, inSection: 0), atScrollPosition: .Left, animated: animate)
     }
     
-    func applyModel(str:String) {
-        
+    func loadCity(city:City) {
+        do {
+            let realm = try Realm()
+            guard let forecast = Forecast.getLatestForecastForCity(city, realm: realm) else { return }
+            
+            self.detailView.updateWithCity(city, withForecast: forecast)
+        }
+        catch { print("Could not load weather details for \(city.name). \(error)") }
     }
     
 }
