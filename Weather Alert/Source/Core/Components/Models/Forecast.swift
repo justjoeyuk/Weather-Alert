@@ -37,7 +37,7 @@ class Forecast : Object, Mappable {
     
     static func getLatestForecastForCity(city:City, realm:Realm) -> Forecast? {
         let currentTime = NSDate().timeIntervalSince1970
-        let offsetFilterMax = currentTime + (kThreeHours - 1)
+        let offsetFilterMax = currentTime + (kForecastIntervalSeconds - 1)
         
         return realm.objects(Forecast.self).filter("cityId = %@ AND time < %d AND time > %d", city.id, offsetFilterMax, currentTime).first
     }

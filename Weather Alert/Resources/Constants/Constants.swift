@@ -15,12 +15,12 @@ typealias EmptyCallback = ()->()
 
 // MARK: Constant Values
 
-// Number of seconds in 3 hours
-let kThreeHours:NSTimeInterval = 10800
+// Number of hours between forecasts (should be an integer when divided with 24)
+let kForecastIntervalHours = 4
+let kForecastIntervalSeconds:NSTimeInterval = Double(kForecastIntervalHours * 60 * 60)
 
 // Placeholder image for a city
 let kCityPlaceholderImage = UIImage.Asset.Placeholder_City.image
-
 
 let kWeatherCardCellHeight = CGFloat(150)
 let kWeatherCardCellIdentifier = "WeatherCardCell"

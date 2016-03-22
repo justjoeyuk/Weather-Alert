@@ -15,14 +15,12 @@ import UIKit
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! TodayForecastCollectionViewCell
         
         let cellHour = indexPath.row * 3
-        let currentHour = Int(floor(Float(NSDate().currentHour()) / 3))
-        
-        print(currentHour)
+        let currentHourIndex = forecastIndexForDate()
         
         let timeText = String(format: "%02d:00", cellHour)
         
         cell.timeLabel.text = timeText
-        cell.backgroundColor = indexPath.row == currentHour ? UIColor.blackColor() : UIColor.darkBackgroundColor()
+        cell.backgroundColor = indexPath.row == currentHourIndex ? UIColor.blackColor() : UIColor.darkBackgroundColor()
         
         return cell
     }

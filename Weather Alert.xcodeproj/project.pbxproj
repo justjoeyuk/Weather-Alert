@@ -37,6 +37,8 @@
 		EF42503A1C935A3F0076DC70 /* Oxygen-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF4250381C935A3F0076DC70 /* Oxygen-Bold.ttf */; };
 		EF42503B1C935A3F0076DC70 /* Oxygen-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF4250391C935A3F0076DC70 /* Oxygen-Regular.ttf */; };
 		EF4250531C9398750076DC70 /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4250521C9398750076DC70 /* Math.swift */; };
+		EF5052721CA17E0000E18989 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5052711CA17E0000E18989 /* Time.swift */; };
+		EF5052741CA17FA600E18989 /* TimeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5052731CA17FA600E18989 /* TimeTests.swift */; };
 		EF5113071C9F7572000ECA25 /* MathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5113031C9F7572000ECA25 /* MathTests.swift */; };
 		EF5113081C9F7572000ECA25 /* WeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5113061C9F7572000ECA25 /* WeatherTests.swift */; };
 		EF51130A1C9F758C000ECA25 /* FlickrImageProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5113091C9F758C000ECA25 /* FlickrImageProviderTests.swift */; };
@@ -126,6 +128,8 @@
 		EF4250451C9397480076DC70 /* Weather Alert Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Weather Alert Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF4250491C9397480076DC70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF4250521C9398750076DC70 /* Math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
+		EF5052711CA17E0000E18989 /* Time.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
+		EF5052731CA17FA600E18989 /* TimeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeTests.swift; sourceTree = "<group>"; };
 		EF5113031C9F7572000ECA25 /* MathTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathTests.swift; sourceTree = "<group>"; };
 		EF5113061C9F7572000ECA25 /* WeatherTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherTests.swift; sourceTree = "<group>"; };
 		EF5113091C9F758C000ECA25 /* FlickrImageProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrImageProviderTests.swift; sourceTree = "<group>"; };
@@ -372,6 +376,7 @@
 				EFFAD7481C9CB5CB002F9399 /* Networking */,
 				EF4250521C9398750076DC70 /* Math.swift */,
 				EFC4A2F51C94644F00ADEDA7 /* Weather.swift */,
+				EF5052711CA17E0000E18989 /* Time.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -390,6 +395,7 @@
 				EF5113041C9F7572000ECA25 /* Networking */,
 				EF5113031C9F7572000ECA25 /* MathTests.swift */,
 				EF5113061C9F7572000ECA25 /* WeatherTests.swift */,
+				EF5052731CA17FA600E18989 /* TimeTests.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -742,6 +748,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF5052741CA17FA600E18989 /* TimeTests.swift in Sources */,
 				EF5113081C9F7572000ECA25 /* WeatherTests.swift in Sources */,
 				EF51130A1C9F758C000ECA25 /* FlickrImageProviderTests.swift in Sources */,
 				EF5113071C9F7572000ECA25 /* MathTests.swift in Sources */,
@@ -776,6 +783,7 @@
 				EFFAD7471C9CB34E002F9399 /* WeatherPageViewController.swift in Sources */,
 				EFFAD7361C9CB32D002F9399 /* BaseCollectionViewCell.swift in Sources */,
 				EF4250361C9332480076DC70 /* Images.swift in Sources */,
+				EF5052721CA17E0000E18989 /* Time.swift in Sources */,
 				EFFAD73F1C9CB32D002F9399 /* AnimatedTurbineView.swift in Sources */,
 				EF61F1411C9F8D6E005F75BD /* WeatherAPIManager.swift in Sources */,
 				EF4250321C93266D0076DC70 /* WeatherCardTableViewDataSource.swift in Sources */,
