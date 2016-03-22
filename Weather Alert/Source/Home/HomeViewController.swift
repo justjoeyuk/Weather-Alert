@@ -30,7 +30,9 @@ class HomeViewController : BaseVC {
         weatherCardTable.separatorStyle = .None
         weatherCardTable.dataSource = weatherCardDatasource
         weatherCardTable.delegate = self
+        weatherCardTable.reloadData()
         
+        navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage.Asset.ListIcon.image, style: .Plain, target: self, action: "modifyCities")
         
         homeView.addCityButton.addTarget(self, action: "addCity", forControlEvents: .TouchUpInside)

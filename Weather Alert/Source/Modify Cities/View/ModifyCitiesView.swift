@@ -14,7 +14,8 @@ class ModifyCitiesView : BaseView {
     let tableView = UITableView()
     
     override func setup() {
-        tableView.backgroundColor = UIColor.darkBackgroundColor()
+        tableView.backgroundColor = UIColor.whiteColor()
+        tableView.tableFooterView = UIView()
         addSubview(tableView)
     }
     

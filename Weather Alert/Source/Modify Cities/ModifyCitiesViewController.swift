@@ -29,10 +29,17 @@ class ModifyCitiesViewController : BaseVC {
     }
     
     override func viewDidLoad() {
+        title = "Cities".localized
+        
         modifyView.tableView.registerClass(ModifyCityCell.self, forCellReuseIdentifier: "ModifyCityCell")
         modifyView.tableView.dataSource = datasource
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "completeModify")
         modifyView.tableView.setEditing(true, animated: true)
+    }
+    
+    func completeModify() {
+        self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
 }

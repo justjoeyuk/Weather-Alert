@@ -21,12 +21,12 @@ import Kingfisher
     
     
     override init() {
-        realm = try! Realm()
-        cityList = realm.objects(City.self)
+        do { self.realm = try Realm() } catch { fatalError("Could not create Realm \(error)") }
+        cityList = realm.objects(City.self).sorted("priority", ascending: true)
         
         super.init()
         
-        self.token = realm.objects(City.self).sorted("priority", ascending: true).addNotificationBlock { results, error in
+        self.token = cityList.addNotificationBlock { results, error in
             guard let results = results else { return }
             self.cityList = results
             
