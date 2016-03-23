@@ -13,13 +13,15 @@ import RealmSwift
 @objc class TodayForecastDataSource : NSObject, UICollectionViewDataSource {
     
     let dayComponent = NSDateComponents()
-    let realm:Realm
+    weak var realm:Realm?
+    
     weak var city:City?
     
     
-    init(city:City) {
-        do { self.realm = try Realm() } catch { fatalError("Could not create Realm \(error)") }
+    init(city:City, realm:Realm) {
+        self.realm = realm
         self.city = city
+        
         super.init()
     }
     
@@ -30,10 +32,7 @@ import RealmSwift
         // TODO: CLEAN THIS METHOD
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! TodayForecastCollectionViewCell
-        guard let city = city else {
-            print("*** ERROR: Could not use city for daily overview ***")
-            return cell
-        }
+        guard let city = city, realm = realm else { return cell }
         
         let today = NSDate()
         let cellHour = indexPath.row * 3
@@ -49,7 +48,7 @@ import RealmSwift
         cell.timeLabel.text = timeText
         cell.backgroundColor = indexPath.row == currentHourIndex ? UIColor.blackColor() : UIColor.darkBackgroundColor()
         
-        guard let forecast = Forecast.getForecastForCity(city, forTime: date!, inRealm: self.realm) else {
+        guard let forecast = Forecast.getForecastForCity(city, forTime: date!, inRealm: realm) else {
             // TODO: This is poor handling, it should only show cells we have a forecast for, but time restrictions...
             return cell
         }

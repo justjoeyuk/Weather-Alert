@@ -12,6 +12,7 @@ import RealmSwift
 
 class WeatherDetailsViewController : BaseVC {
     
+    let realm:Realm
     let todayForecastDataSource:TodayForecastDataSource
     let dailyOverviewDataSource:DailyOverviewDataSource
     
@@ -30,10 +31,12 @@ class WeatherDetailsViewController : BaseVC {
     // MARK: Lifecycle
     
     init(city:City) {
+        do { self.realm = try Realm() } catch { fatalError("Could not create Realm \(error)") }
         self.city = city
         
-        todayForecastDataSource = TodayForecastDataSource(city: city)
-        dailyOverviewDataSource = DailyOverviewDataSource(city: city)
+        todayForecastDataSource = TodayForecastDataSource(city: city, realm:self.realm)
+        dailyOverviewDataSource = DailyOverviewDataSource(city: city, realm:self.realm)
+        
         super.init()
     }
 
