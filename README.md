@@ -10,6 +10,11 @@ Run the following commands:
 The --no-skip-current in Carthage is simply because the latest XCode versions don't like the downloaded frameworks, so building from scratch solves a few problems. Should be fixed in next version of XCode.
 
 
+### Known Issues
+
+Visit the "Issues" tab to see issues I am aware of an I am currently working to fix.
+
+
 ### Limitations
 
 - Minimum iOS Version: 8.1
