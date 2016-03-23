@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 @objc class DailyOverviewDataSource : NSObject, UITableViewDataSource {
     
@@ -14,15 +15,34 @@ import UIKit
     let calendar = NSCalendar.currentCalendar()
     let dateFormatter = NSDateFormatter()
     
+    let realm:Realm
+    weak var city:City?
+    
+    
+    init(city:City) {
+        do { self.realm = try Realm() } catch { fatalError("Could not create Realm \(error)") }
+        self.city = city
+        super.init()
+    }
+    
+    
+    // MARK: UITableViewDelegate Methods
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("DailyOverviewCell") as! DailyOverviewTableViewCell
-        let today = NSDate()
+        guard let city = city else {
+            print("*** ERROR: Could not use city for daily overview ***")
+            return cell
+        }
         
+        let today = NSDate()
         dayComponent.day = indexPath.row + 1
         dateFormatter.dateFormat = "EEEE' 'dd"
         
         let dateForCell = calendar.dateByAddingComponents(dayComponent, toDate:today , options: NSCalendarOptions(rawValue:0))
         
+        let forecast = Forecast.getForecastForCity(city, forTime: dateForCell!, inRealm: self.realm)
+        cell.updateWithForecast(forecast!)
         cell.dayLabel.text = dateFormatter.stringFromDate(dateForCell!)
         
         return cell

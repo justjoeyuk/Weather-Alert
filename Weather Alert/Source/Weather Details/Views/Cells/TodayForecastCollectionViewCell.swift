@@ -12,7 +12,7 @@ import UIKit
 class TodayForecastCollectionViewCell : BaseCollectionViewCell {
     
     let timeLabel = UILabel()
-    let windDirectionView = UIImageView()
+    let windDirectionView = WindDirectionView()
     let windSpeedLabel = UILabel()
     
     
@@ -33,10 +33,7 @@ class TodayForecastCollectionViewCell : BaseCollectionViewCell {
         contentView.addSubview(timeLabel)
     }
     
-    private func setupWindDirectionView() {
-        windDirectionView.image = UIImage.Asset.Arrow.image
-        windDirectionView.contentMode = .ScaleAspectFit
-        
+    private func setupWindDirectionView() {        
         contentView.addSubview(windDirectionView)
     }
     

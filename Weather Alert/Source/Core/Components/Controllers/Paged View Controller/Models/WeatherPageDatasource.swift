@@ -44,9 +44,8 @@ import RealmSwift
     }
     
     func viewControllerForIndex(index:Int) -> WeatherDetailsViewController {
-        let viewController = WeatherDetailsViewController()
+        let viewController = WeatherDetailsViewController(city: cities[index])
         
-        viewController.loadCity(cities[index])
         viewController.pageIndex = index
         
         return viewController

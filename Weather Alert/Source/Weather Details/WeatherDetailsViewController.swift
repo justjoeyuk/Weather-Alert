@@ -12,9 +12,10 @@ import RealmSwift
 
 class WeatherDetailsViewController : BaseVC {
     
-    let todayForecastDataSource = TodayForecastDataSource()
-    let dailyOverviewDataSource = DailyOverviewDataSource()
+    let todayForecastDataSource:TodayForecastDataSource
+    let dailyOverviewDataSource:DailyOverviewDataSource
     
+    let city:City
     var currentDay: Int = -1
     var currentHour: Int = -1
     
@@ -25,6 +26,20 @@ class WeatherDetailsViewController : BaseVC {
     // Flag for UICollectionView to initially scroll to current hour
     var pendingTimeUpdateScroll:Bool = false
     
+    
+    // MARK: Lifecycle
+    
+    init(city:City) {
+        self.city = city
+        
+        todayForecastDataSource = TodayForecastDataSource(city: city)
+        dailyOverviewDataSource = DailyOverviewDataSource(city: city)
+        super.init()
+    }
+
+    required init() {
+        fatalError("init() has not been implemented")
+    }
     
     override func loadView() {
         self.view = WeatherDetailsView()
@@ -42,6 +57,7 @@ class WeatherDetailsViewController : BaseVC {
         dailyOverviewTable.dataSource = dailyOverviewDataSource
         dailyOverviewTable.delegate = self
         
+        updateCity()
         updateTime()
     }
     
@@ -53,6 +69,9 @@ class WeatherDetailsViewController : BaseVC {
     override func viewWillDisappear(animated: Bool) {
         updateTimer?.invalidate()
     }
+    
+    
+    // MARK: Updates
     
     /** Updates the time in detail view controller which is reflected in the forecast */
     func updateTime() {
@@ -96,11 +115,9 @@ class WeatherDetailsViewController : BaseVC {
     }
     
     /**
-     Loads the forecast and details for a given city
-     
-     - parameter city: The city to load data for
+     Updates the forecast and details for the current city
      */
-    func loadCity(city:City) {
+    func updateCity() {
         do {
             let realm = try Realm()
             guard let forecast = Forecast.getNextForecastForCity(city, realm: realm) else {

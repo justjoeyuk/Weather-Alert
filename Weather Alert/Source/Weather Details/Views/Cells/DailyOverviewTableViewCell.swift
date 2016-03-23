@@ -27,6 +27,9 @@ class DailyOverviewTableViewCell : BaseTableViewCell {
         }
     }
     
+    
+    // MARK: Setup
+    
     override func setup() {
         backgroundColor = UIColor.darkBackgroundColor()
         selectionStyle = .None
@@ -71,6 +74,20 @@ class DailyOverviewTableViewCell : BaseTableViewCell {
             .text = "SW"
         
         contentView.addSubview(windDirectionLabel)
+    }
+    
+    
+    // MARK: Updates
+    
+    func updateWithForecast(forecast:Forecast) {
+        let windDirection = Double(forecast.windDirection)
+        let windSpeed = Double(forecast.windSpeed)
+        
+        windDirectionLabel.text = cardinalDirectionFromDegrees(windDirection)
+        windDirectionView.setWindDirection(windDirection)
+        
+        // TODO: This should be elsewhere, the same code is used elsewhere
+        windSpeedLabel.text = String(format: "%.1f mph", windSpeed)
     }
     
 }
