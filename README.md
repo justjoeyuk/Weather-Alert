@@ -2,9 +2,9 @@
 
 Install Carthage ( https://github.com/Carthage/Carthage )
 
-Install Cocoapods ( https://guides.cocoapods.org/using/getting-started.html ) **use pre-release version**
-
 Run the following commands:
+
+```gem install cocoapods --pre```
 
 ```carthage bootstrap --no-build```
 
@@ -14,6 +14,7 @@ Run the following commands:
 
 The --no-skip-current in Carthage is simply because the latest XCode versions don't like the downloaded frameworks, so building from scratch solves a few problems. Should be fixed in next version of XCode.
 
+If you need to use an old version of CocoaPods after using this application, run ```gem uninstall cocoapods``` and select the pre-release version you have just downloaded.
 
 ### Known Issues
 
