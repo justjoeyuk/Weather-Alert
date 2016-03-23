@@ -14,7 +14,6 @@ import RealmSwift
     
     let dayComponent = NSDateComponents()
     weak var realm:Realm?
-    
     weak var city:City?
     
     
@@ -34,27 +33,25 @@ import RealmSwift
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! TodayForecastCollectionViewCell
         guard let city = city, realm = realm else { return cell }
         
-        let today = NSDate()
-        let cellHour = indexPath.row * 3
-        
-        let cal = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
-        let comps = cal.components([.Year, .Month, .Day, .Hour], fromDate: today)
-        comps.hour = cellHour
-        
-        let date = cal.dateFromComponents(comps)
-        
-        let currentHourIndex = forecastIndexForDate()
+        let cellHour = indexPath.row * kForecastIntervalHours
+        let cellDate = roundDateToForecastIndex(NSDate(), index: indexPath.row)
         let timeText = String(format: "%02d:00", cellHour)
-        cell.timeLabel.text = timeText
-        cell.backgroundColor = indexPath.row == currentHourIndex ? UIColor.blackColor() : UIColor.darkBackgroundColor()
         
-        guard let forecast = Forecast.getForecastForCity(city, forTime: date!, inRealm: realm) else {
+        cell.backgroundColor = indexPath.row == forecastIndexForDate() ? UIColor.blackColor() : UIColor.darkBackgroundColor()
+        
+        guard let forecast = Forecast.getForecastForCity(city, forTime: cellDate, inRealm: realm) else {
             // TODO: This is poor handling, it should only show cells we have a forecast for, but time restrictions...
+            cell.timeLabel.text = "--:--"
+            cell.windSpeedLabel.text = "-.- mph"
+            cell.windDirectionView.hidden = true
             return cell
         }
         
         // TODO: Extract into cells update method
+        cell.timeLabel.text = timeText
         cell.windSpeedLabel.text = String(format: "%.1f mph", forecast.windSpeed)
+        
+        cell.windDirectionView.hidden = false
         cell.windDirectionView.setWindDirection(Double(forecast.windDirection))
         
         return cell

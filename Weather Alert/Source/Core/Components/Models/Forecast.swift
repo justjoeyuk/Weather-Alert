@@ -48,7 +48,7 @@ class Forecast : Object, Mappable {
         let epoch = time.timeIntervalSince1970
         let offsetFilterMin = epoch - (kForecastIntervalSeconds - 1)
         
-        return realm.objects(Forecast.self).filter("cityId = %@ AND time < %d AND time > %d", city.id, epoch, offsetFilterMin).first
+        return realm.objects(Forecast.self).filter("cityId = %@ AND time <= %d AND time > %d", city.id, epoch, offsetFilterMin).first
     }
     
     /**
