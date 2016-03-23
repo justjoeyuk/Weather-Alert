@@ -85,7 +85,7 @@ extension WeatherDetailsView : UICollectionViewDelegate {
 extension WeatherDetailsView {
     
     struct LayoutConstants {
-        static let TodayCollectionCellSize = 80
+        static let TodayCollectionCellSize = 60
     }
     
     override func setupConstraints() {
