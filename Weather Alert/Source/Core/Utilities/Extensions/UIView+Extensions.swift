@@ -52,8 +52,6 @@ extension UIView {
         if let presentationLayer = layer.presentationLayer() {
             layer.transform = presentationLayer.transform
         }
-        
-        //layer.removeAnimationForKey("Spin")
     }
     
 }

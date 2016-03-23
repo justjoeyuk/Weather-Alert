@@ -49,7 +49,6 @@ class WeatherDetailsView : BaseView {
     
     private func setupDailyOverviewTableView() {
         dailyOverviewTableView.backgroundColor = UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
-        
         addSubview(dailyOverviewTableView)
     }
     

@@ -29,7 +29,7 @@ import UIKit
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 13
+        return 4
     }
     
 }

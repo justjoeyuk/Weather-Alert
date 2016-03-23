@@ -116,33 +116,8 @@ class WeatherDetailsViewController : BaseVC {
 }
 
 
-extension WeatherDetailsViewController : UICollectionViewDelegate {
-    
-}
-
 extension WeatherDetailsViewController : UITableViewDelegate {
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 65
-    }
-    
-    func scrollViewDidScroll(scrollView: UIScrollView) {
-        let halfHeaderHeight = detailView.headerView.frame.height * 0.4
-        var offset = scrollView.contentOffset.y
-        
-        if offset <= 0 { offset = 0 }
-        if offset >= halfHeaderHeight { offset = halfHeaderHeight }
-        
-        detailView.todayForecastTopConstraint.updateOffset(-offset)
-    }
-    
-    func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        let halfHeaderHeight = detailView.headerView.frame.height * 0.4
-        var offset = targetContentOffset.memory.y
-        
-        if offset > 0 && offset < halfHeaderHeight {
-            if offset < halfHeaderHeight/2 { offset = 0 } else { offset = halfHeaderHeight }
-        }
-        
-        targetContentOffset.memory.y = offset
     }
 }
