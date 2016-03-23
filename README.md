@@ -2,7 +2,7 @@
 
 Install Carthage ( https://github.com/Carthage/Carthage )
 
-Install Cocoapods ( https://guides.cocoapods.org/using/getting-started.html ) ** use pre-release version **
+Install Cocoapods ( https://guides.cocoapods.org/using/getting-started.html ) **use pre-release version**
 
 Run the following commands:
 
