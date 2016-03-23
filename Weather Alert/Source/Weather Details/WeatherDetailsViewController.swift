@@ -84,16 +84,29 @@ class WeatherDetailsViewController : BaseVC {
         pendingTimeUpdateScroll = false
     }
     
+    /** 
+     Positions the forecast for today so that the forecast which the current time sits within is highlighted
+     
+     - parameter animate: Whether or not the scroll should animate
+     */
     func scrollToCurrentHour(animate:Bool = true) {
         let hourIndex = forecastIndexForDate()
         
         detailView.todayCollectionView.scrollToItemAtIndexPath(NSIndexPath(forRow: hourIndex, inSection: 0), atScrollPosition: .Left, animated: animate)
     }
     
+    /**
+     Loads the forecast and details for a given city
+     
+     - parameter city: The city to load data for
+     */
     func loadCity(city:City) {
         do {
             let realm = try Realm()
-            guard let forecast = Forecast.getLatestForecastForCity(city, realm: realm) else { return }
+            guard let forecast = Forecast.getNextForecastForCity(city, realm: realm) else {
+                print("*** ERROR: Failed to get Forecast for \(city.name) ***")
+                return
+            }
             
             self.detailView.updateWithCity(city, withForecast: forecast)
         }

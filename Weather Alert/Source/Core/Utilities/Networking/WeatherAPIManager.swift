@@ -32,34 +32,61 @@ class WeatherAPIManager {
      - parameter location: The location to get the forecast for
      - parameter callback: The callback to be invoked upon completion/failure
     */
-    static func gatherFiveDayForecast(location:String?, callback:BasicCallback) {
+    static func gatherFiveDayForecastWithLocation(location:String?, callback:BasicCallback) {
         guard let location = location else { callback(false, nil); return }
         
-        let request = Alamofire.request(.GET, "\(baseUrl)/forecast", parameters: ["q": location, "units":"imperial", "appid":appId])
+        // TODO: I should have a list of inherited parameters/headers, but time has me whipped.
+        let parameters = ["q": location, "units":"imperial", "appid":appId]
+        let request = Alamofire.request(.GET, "\(baseUrl)/forecast", parameters: parameters)
         
         request.responseJSON { response in
-            guard
-                let jsonValue = response.result.value as? NSDictionary,
-                let cityData = jsonValue["city"] as? NSDictionary,
-                let forecastList = jsonValue["list"] as? NSArray
+            self.handleFiveDayForecastResponse(response, withCallback: callback)
+        }
+    }
+    
+    /**
+     Gets a five day forecast (for every 3 hours) for a given city from the current time.
+     
+     - parameter city: The city object to update
+     - parameter callback: The callback to be invoked upon completion/failure
+    */
+    static func gatherFiveDayForecastWithCity(city:City, callback:BasicCallback) {
+        let request = Alamofire.request(.GET, "\(baseUrl)/forecast", parameters: ["id": city.id, "units":"imperial", "appid":appId])
+        
+        request.responseJSON { response in
+            self.handleFiveDayForecastResponse(response, withCallback: callback)
+        }
+    }
+     
+    
+    /**
+     Handles the API response for forecasts and creates/updates cities and forecasts.
+     
+     - parameter response: The alamofire response
+     - parameter callback: The callback to be invoked upon completion/failure
+    */
+    private static func handleFiveDayForecastResponse(response:Response<AnyObject, NSError>, withCallback callback:BasicCallback) {
+        guard
+            let jsonValue = response.result.value as? NSDictionary,
+            let cityData = jsonValue["city"] as? NSDictionary,
+            let forecastList = jsonValue["list"] as? NSArray
             else {
                 callback(false, WeatherAPIError.InvalidJSON); return
-            }
+        }
+        
+        do {
+            let realm = try Realm()
             
-            do {
-                let realm = try Realm()
-                
-                let city = try generateCityWithData(cityData, realm: realm)
-                try generateForecastWithData(forecastList, forCity:city, realm: realm)
-                
-                WeatherAPIManager.updateLocationImage(city.id) { success, error in
-                    callback(success, error)
-                }
+            let city = try generateCityWithData(cityData, realm: realm)
+            try generateForecastWithData(forecastList, forCity:city, realm: realm)
+            
+            WeatherAPIManager.updateLocationImage(city.id) { success, error in
+                callback(success, error)
             }
-            catch {
-                print("*** ERROR IN FORECAST RESPONSE: \(error) ***")
-                callback(false, error)
-            }
+        }
+        catch {
+            print("*** ERROR IN FORECAST RESPONSE: \(error) ***")
+            callback(false, error)
         }
     }
     

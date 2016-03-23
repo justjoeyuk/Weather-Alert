@@ -41,9 +41,13 @@ import Kingfisher
         guard let cell = tableView.dequeueReusableCellWithIdentifier(kWeatherCardCellIdentifier, forIndexPath: indexPath) as? WeatherCardTableViewCell else { return UITableViewCell() }
         
         let city = cityList[indexPath.row]
-        guard let forecast = Forecast.getLatestForecastForCity(city, realm: realm) else { return cell }
         
-        cell.updateWithCity(city, forecast: forecast)
+        // Attempt to get the active forecast, else resort to the upcoming forecast. This is 
+        // because when we have just added the city, we don't have the active forecast for it.
+        let activeForecast = Forecast.getForecastForCity(city, forTime: NSDate(), inRealm: realm)
+        let nextForecast = Forecast.getNextForecastForCity(city, realm: realm)
+        
+        cell.updateWithCity(city, forecast: activeForecast ?? nextForecast!)
         return cell
     }
     

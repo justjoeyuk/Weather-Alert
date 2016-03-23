@@ -16,7 +16,7 @@ typealias EmptyCallback = ()->()
 // MARK: Constant Values
 
 // Number of hours between forecasts (should be an integer when divided with 24)
-let kForecastIntervalHours = 4
+let kForecastIntervalHours = 3
 let kForecastIntervalSeconds:NSTimeInterval = Double(kForecastIntervalHours * 60 * 60)
 
 // Placeholder image for a city

@@ -42,6 +42,23 @@ class City : Object, Mappable {
         }
     }
     
+    /**
+     Removes old forecasts and downloads a new 5 day forecast for the city
+    */
+    func updateForecasts(callback:BasicCallback) {
+        do {
+            let realm = try Realm()
+            
+            let cities = realm.objects(Forecast.self).filter("time < %d", NSDate().timeIntervalSince1970)
+            try realm.write { realm.delete(cities) }
+        }
+        catch {
+            print("*** ERROR \(error) ***")
+        }
+        
+        WeatherAPIManager.gatherFiveDayForecastWithCity(self, callback: callback)
+    }
+    
     func mapping(map: Map) {
         id <- map["id"]
         name <- map["name"]

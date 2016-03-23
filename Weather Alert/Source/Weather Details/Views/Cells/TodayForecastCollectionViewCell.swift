@@ -64,7 +64,7 @@ extension TodayForecastCollectionViewCell {
     
     private func setupTimeLabelConstraints() {
         timeLabel.snp_makeConstraints { make in
-            make.height.equalTo(20)
+            make.height.equalTo(self).multipliedBy(0.33)
             make.top.centerX.equalTo(self.contentView)
             make.width.equalTo(self.contentView).multipliedBy(0.7)
         }
@@ -80,7 +80,7 @@ extension TodayForecastCollectionViewCell {
     
     private func setupWindSpeedLabelConstraints() {
         windSpeedLabel.snp_makeConstraints { make in
-            make.height.equalTo(20)
+            make.height.equalTo(self).multipliedBy(0.33)
             make.bottom.centerX.equalTo(self.contentView)
             make.width.equalTo(self.contentView).multipliedBy(0.7)
         }

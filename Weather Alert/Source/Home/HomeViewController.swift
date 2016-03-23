@@ -60,7 +60,32 @@ class HomeViewController : BaseVC {
 extension HomeViewController : GMSAutocompleteViewControllerDelegate {
     
     func viewController(viewController: GMSAutocompleteViewController, didAutocompleteWithPlace place: GMSPlace) {
-        WeatherAPIManager.gatherFiveDayForecast(place.formattedAddress) { success, error in
+        var city:String?
+        var country:String?
+        
+        var locationQuery:String!
+        
+        place.addressComponents?.forEach { component in
+            let comp = component as GMSAddressComponent
+            
+            switch comp.type {
+            case kGMSPlaceTypeLocality:
+                city = comp.name
+            case kGMSPlaceTypeCountry:
+                country = comp.name
+            default:
+                break
+            }
+        }
+        
+        if let city = city, let country = country {
+            locationQuery = "\(city),\(country)"
+        }
+        else {
+            locationQuery = place.formattedAddress
+        }
+        
+        WeatherAPIManager.gatherFiveDayForecastWithLocation(locationQuery) { success, error in
             print("Forecast Result for \(place.name): \(success ? "true" : "false")")
             self.dismissViewControllerAnimated(true, completion: nil)
         }

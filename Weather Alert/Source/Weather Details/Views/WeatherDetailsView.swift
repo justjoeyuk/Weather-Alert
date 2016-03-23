@@ -37,7 +37,7 @@ class WeatherDetailsView : BaseView {
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        layout.itemSize = CGSize(width: 60, height: 60)
+        layout.itemSize = CGSize(width: LayoutConstants.TodayCollectionCellSize, height: LayoutConstants.TodayCollectionCellSize)
         
         todayCollectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: layout)
         todayCollectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
@@ -77,16 +77,6 @@ class WeatherDetailsView : BaseView {
 }
 
 extension WeatherDetailsView : UICollectionViewDelegate {
-    func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        
-        // Modify the target offset to be fixed to a cell
-        var newOffset = targetContentOffset.memory
-        let newVal = newOffset.x.roundToPlaceValue(Float(LayoutConstants.TodayCollectionCellSize))
-        newOffset.x = CGFloat(newVal)
-        
-        targetContentOffset.memory = newOffset
-    }
-    
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         collectionView.scrollToItemAtIndexPath(indexPath, atScrollPosition: .Left, animated: true)
     }
@@ -96,7 +86,7 @@ extension WeatherDetailsView : UICollectionViewDelegate {
 extension WeatherDetailsView {
     
     struct LayoutConstants {
-        static let TodayCollectionCellSize = 60
+        static let TodayCollectionCellSize = 80
     }
     
     override func setupConstraints() {
@@ -124,7 +114,7 @@ extension WeatherDetailsView {
         todayCollectionView.snp_makeConstraints { make in
             make.left.right.equalTo(self)
             self.todayForecastTopConstraint = make.top.equalTo(self.headerView.snp_bottom).constraint
-            make.height.equalTo(62)
+            make.height.equalTo(LayoutConstants.TodayCollectionCellSize)
         }
     }
     
