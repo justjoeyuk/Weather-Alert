@@ -40,6 +40,7 @@ extension UIView {
         rotation.toValue = NSNumber(double: 2 * M_PI)
         rotation.duration = timePerSpin
         rotation.repeatCount = Float.infinity
+        rotation.removedOnCompletion = false
         
         layer.addAnimation(rotation, forKey: "Spin")
     }
@@ -52,7 +53,7 @@ extension UIView {
             layer.transform = presentationLayer.transform
         }
         
-        layer.removeAnimationForKey("Spin")
+        //layer.removeAnimationForKey("Spin")
     }
     
 }

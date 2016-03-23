@@ -11,6 +11,9 @@ import UIKit
 
 class WeatherCardTableViewCell : BaseTableViewCell {
     
+    weak var city:City?
+    weak var forecast:Forecast?
+    
     let backgroundImageView = UIImageView()
     let animatedTurbineView = AnimatedTurbineView()
     let windDirectionView = WindDirectionView()
@@ -133,6 +136,8 @@ class WeatherCardTableViewCell : BaseTableViewCell {
         /** TODO: I have considered making this implementation and have it in a protocol, I have
          two views in the app that do this exact setup. It's a pretty bad case of DRY. However,
          time restrictions are in place. */
+        self.city = city
+        self.forecast = forecast
         
         let windDirection = Double(forecast.windDirection)
         let windSpeed = Double(forecast.windSpeed)

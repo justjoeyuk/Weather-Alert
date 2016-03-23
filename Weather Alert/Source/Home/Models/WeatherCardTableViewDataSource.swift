@@ -51,7 +51,6 @@ import Kingfisher
         return cell
     }
     
-    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.cityList.count
     }
