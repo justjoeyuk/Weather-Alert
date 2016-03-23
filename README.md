@@ -1,9 +1,18 @@
 ### Installation
 Run the following commands:
 
-```carthage bootstrap```
+```carthage bootstrap --no-build```
+
+```carthage update --no-skip-current --platform iOS```
 
 ```pod install```
+
+The --no-skip-current in Carthage is simply because the latest XCode versions don't like the downloaded frameworks, so building from scratch solves a few problems. Should be fixed in next version of XCode.
+
+
+### Limitations
+
+- Minimum iOS Version: 8.1
 
 
 ### Report
@@ -26,10 +35,12 @@ The application has 4 configurations. This is not necessary at all but it's to s
 #### Dependency Management
 
 ##### Cocoapods
-Personally, I try to avoid the use of Cocoapods. I do this because I don't like the micro-management it has on the project and it's single point of failure. I couldn't avoid it however, since Google use it as the official channel for the places SDK. I have familiarity with Cocoapods but I prefer Carthage.
+**Note: Install the latest CocoaPods.**
+
+Personally, I would like to avoid the use of Cocoapods. I do this because I don't like the micro-management it has on the project and it's single point of failure. I couldn't avoid it however, since Google use it as the official channel for the places SDK. I have familiarity with Cocoapods but I prefer Carthage.
 
 ##### Carthage
-I used Carthage as my primary package manager. I like Carthage because of the simplicity. Although it may be slower to get a framework into the project, you still have full control. It's also much easier to maintain when you have multiple app configurations.
+I used Carthage as my primary package manager in this particular project. I like the idea of Carthage because of the simplicity. I wanted to explore it some more and I used this project for that. I've discovered that building the libraries for carthage is really slow. I would most like resort to CocoaPods until a better alternative arrives. It's also much easier to maintain when you have multiple app configurations.
 
 
 #### Libraries/APIs
