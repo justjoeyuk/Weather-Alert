@@ -113,6 +113,7 @@ extension WeatherDetailsHeaderView {
             make.top.equalTo(self).offset(10)
             make.centerX.equalTo(self)
             make.width.equalTo(self).multipliedBy(0.8)
+            make.bottom.equalTo(self.windDirectionLabel.snp_top)
         }
     }
     

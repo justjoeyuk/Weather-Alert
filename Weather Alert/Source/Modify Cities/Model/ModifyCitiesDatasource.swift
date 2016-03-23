@@ -33,6 +33,7 @@ import RealmSwift
         
         let city = cities[indexPath.row]
         
+        cell.textLabel?.applyAutoSize().applyOxygenFont(16)
         cell.textLabel?.text = city.name
         
         return cell
