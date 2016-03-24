@@ -70,7 +70,7 @@ class WeatherAPIManager {
             let jsonValue = response.result.value as? NSDictionary,
             let cityData = jsonValue["city"] as? NSDictionary,
             let forecastList = jsonValue["list"] as? NSArray
-            else {
+        else {
                 callback(false, WeatherAPIError.InvalidJSON); return
         }
         
