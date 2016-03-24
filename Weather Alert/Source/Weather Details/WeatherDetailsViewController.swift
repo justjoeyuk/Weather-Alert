@@ -12,6 +12,7 @@ import RealmSwift
 
 class WeatherDetailsViewController : BaseVC {
     
+    var realmToken:NotificationToken?
     let realm:Realm
     let todayForecastDataSource:TodayForecastDataSource
     let dailyOverviewDataSource:DailyOverviewDataSource
@@ -37,6 +38,15 @@ class WeatherDetailsViewController : BaseVC {
         todayForecastDataSource = TodayForecastDataSource(city: city, realm:self.realm)
         dailyOverviewDataSource = DailyOverviewDataSource(city: city, realm:self.realm)
         
+        realmToken = self.realm.objects(City.self).filter("lastForecast = %@", city.lastForecast).addNotificationBlock { results, error in
+            print("City has been updated, refreshing UI")
+            
+        }
+        
+        city.updateForecasts { success, error in
+            print("FORECAST UPDATE: \(success)")
+        }
+        
         super.init()
     }
 
@@ -60,12 +70,11 @@ class WeatherDetailsViewController : BaseVC {
         dailyOverviewTable.dataSource = dailyOverviewDataSource
         dailyOverviewTable.delegate = self
         
-        updateCity()
-        updateTime()
+        updatePage()
     }
     
     override func viewWillAppear(animated: Bool) {
-        updateTimer = NSTimer(timeInterval: 5, target: self, selector: "updateTime", userInfo: nil, repeats: true)
+        updateTimer = NSTimer(timeInterval: 5, target: self, selector: "updatePage", userInfo: nil, repeats: true)
         NSRunLoop.mainRunLoop().addTimer(updateTimer!, forMode: NSRunLoopCommonModes)
     }
     
@@ -76,6 +85,11 @@ class WeatherDetailsViewController : BaseVC {
     
     // MARK: Updates
     
+    func updatePage() {
+        updateCity()
+        updateTime()
+    }
+    
     /** Updates the time in detail view controller which is reflected in the forecast */
     func updateTime() {
         // TODO: Update headerview
@@ -84,8 +98,7 @@ class WeatherDetailsViewController : BaseVC {
         let newestHour = NSDate().currentHour()
         
         if newestDay != self.currentDay {
-            self.detailView.dailyOverviewTableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .Automatic)
-            self.detailView.dailyOverviewTableView.scrollToRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), atScrollPosition: .Top, animated: true)
+            self.detailView.dailyOverviewTableView.reloadData()
             self.currentDay = newestDay
         }
         
@@ -121,16 +134,14 @@ class WeatherDetailsViewController : BaseVC {
      Updates the forecast and details for the current city
      */
     func updateCity() {
-        do {
-            let realm = try Realm()
-            guard let forecast = Forecast.getNextForecastForCity(city, realm: realm) else {
-                print("*** ERROR: Failed to get Forecast for \(city.name) ***")
-                return
-            }
-            
-            self.detailView.updateWithCity(city, withForecast: forecast)
+        // TODO: This should not be getting the "next" forecast. It's done this way
+        // because as of now, we don't have the actual forecast for right now
+        guard let forecast = Forecast.getNextForecastForCity(city, realm: realm) else {
+            print("*** ERROR: Failed to get Forecast for \(city.name) ***")
+            return
         }
-        catch { print("Could not load weather details for \(city.name). \(error)") }
+        
+        self.detailView.updateWithCity(city, withForecast: forecast)
     }
     
 }
