@@ -102,7 +102,7 @@ extension WeatherDetailsView {
         todayCollectionView.snp_makeConstraints { make in
             make.left.right.equalTo(self)
             self.todayForecastTopConstraint = make.top.equalTo(self.headerView.snp_bottom).constraint
-            make.height.equalTo(60)
+            make.height.equalTo(62)
         }
     }
     
