@@ -12,14 +12,14 @@ import UIKit
 @objc class TodayForecastDataSource : NSObject, UICollectionViewDataSource {
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath)
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! TodayForecastCollectionViewCell
         
-        if indexPath.row == 4 {
-            cell.backgroundColor = UIColor.blackColor()
-        }
-        else {
-            cell.backgroundColor = UIColor.darkBackgroundColor()
-        }
+        let cellHour = indexPath.row
+        let currentHour = NSDate().currentHour()
+        let timeText = String(format: "%02d:00", cellHour)
+        
+        cell.timeLabel.text = timeText
+        cell.backgroundColor = cellHour == currentHour ? UIColor.blackColor() : UIColor.darkBackgroundColor()
         
         return cell
     }

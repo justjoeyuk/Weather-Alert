@@ -27,6 +27,7 @@
 		EF38B06D1C9B5150005B29CD /* AnimatedTurbineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF38B06C1C9B5150005B29CD /* AnimatedTurbineView.swift */; };
 		EF38B06F1C9B520C005B29CD /* WindDirectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF38B06E1C9B520C005B29CD /* WindDirectionView.swift */; };
 		EF38B0711C9B5C29005B29CD /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF38B0701C9B5C29005B29CD /* Fonts.swift */; };
+		EF38B0731C9B752E005B29CD /* NSDate+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF38B0721C9B752E005B29CD /* NSDate+Extensions.swift */; };
 		EF4250291C92277E0076DC70 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4250281C92277E0076DC70 /* HomeViewController.swift */; };
 		EF42502B1C9228010076DC70 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF42502A1C9228010076DC70 /* HomeView.swift */; };
 		EF42502E1C931E9D0076DC70 /* WeatherCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF42502D1C931E9D0076DC70 /* WeatherCardTableViewCell.swift */; };
@@ -88,6 +89,7 @@
 		EF38B06C1C9B5150005B29CD /* AnimatedTurbineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatedTurbineView.swift; sourceTree = "<group>"; };
 		EF38B06E1C9B520C005B29CD /* WindDirectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindDirectionView.swift; sourceTree = "<group>"; };
 		EF38B0701C9B5C29005B29CD /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		EF38B0721C9B752E005B29CD /* NSDate+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Extensions.swift"; sourceTree = "<group>"; };
 		EF4250281C92277E0076DC70 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		EF42502A1C9228010076DC70 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		EF42502D1C931E9D0076DC70 /* WeatherCardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherCardTableViewCell.swift; sourceTree = "<group>"; };
@@ -312,6 +314,7 @@
 				EF42503D1C936AA20076DC70 /* UILabel+Extensions.swift */,
 				EF1ABA031C9B2B83006D5049 /* UIScrollView+Extensions.swift */,
 				EF1ABA051C9B2E47006D5049 /* Number+Extensions.swift */,
+				EF38B0721C9B752E005B29CD /* NSDate+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -569,6 +572,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF38B0731C9B752E005B29CD /* NSDate+Extensions.swift in Sources */,
 				EF42503E1C936AA20076DC70 /* UILabel+Extensions.swift in Sources */,
 				EF0570F51C791CDC00B1D105 /* BaseView.swift in Sources */,
 				EF42502B1C9228010076DC70 /* HomeView.swift in Sources */,

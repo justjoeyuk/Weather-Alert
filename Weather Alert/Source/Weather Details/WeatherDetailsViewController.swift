@@ -14,8 +14,16 @@ class WeatherDetailsViewController : BaseVC {
     let todayForecastDataSource = TodayForecastDataSource()
     let dailyOverviewDataSource = DailyOverviewDataSource()
     
+    var currentDay: Int = -1
+    var currentHour: Int = -1
+    
+    var updateTimer: NSTimer?
     var pageIndex: Int = 0
     var detailView: WeatherDetailsView { return self.view as! WeatherDetailsView }
+    
+    // Flag for UICollectionView to initially scroll to current hour
+    var pendingTimeUpdateScroll:Bool = false
+    
     
     override func loadView() {
         self.view = WeatherDetailsView()
@@ -32,6 +40,53 @@ class WeatherDetailsViewController : BaseVC {
         dailyOverviewTable.separatorStyle = .None
         dailyOverviewTable.dataSource = dailyOverviewDataSource
         dailyOverviewTable.delegate = self
+        
+        updateTime()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        updateTimer = NSTimer(timeInterval: 5, target: self, selector: "updateTime", userInfo: nil, repeats: true)
+        NSRunLoop.mainRunLoop().addTimer(updateTimer!, forMode: NSRunLoopCommonModes)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        updateTimer?.invalidate()
+    }
+    
+    /** Updates the time in detail view controller which is reflected in the forecast */
+    func updateTime() {
+        // TODO: Update headerview
+        
+        let newestDay = NSDate().currentDay()
+        let newestHour = NSDate().currentHour()
+        
+        if newestDay != self.currentDay {
+            self.detailView.dailyOverviewTableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .Automatic)
+            self.detailView.dailyOverviewTableView.scrollToRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), atScrollPosition: .Top, animated: true)
+            self.currentDay = newestDay
+        }
+        
+        if newestHour != self.currentHour {
+            pendingTimeUpdateScroll = true
+            detailView.todayCollectionView.reloadData()
+            scrollToCurrentHour()
+            
+            self.currentHour = newestHour
+        }
+    }
+    
+    /** Workaround to ensure that scrolling to the current hour works on initial view load */
+    override func viewDidLayoutSubviews() {
+        guard pendingTimeUpdateScroll else { return }
+        
+        scrollToCurrentHour(false)
+        pendingTimeUpdateScroll = false
+    }
+    
+    func scrollToCurrentHour(animate:Bool = true) {
+        let hour = NSDate().currentHour()
+        
+        detailView.todayCollectionView.scrollToItemAtIndexPath(NSIndexPath(forRow: hour, inSection: 0), atScrollPosition: .CenteredHorizontally, animated: animate)
     }
     
     func applyModel(str:String) {
