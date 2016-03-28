@@ -42,7 +42,6 @@ import RealmSwift
         
         guard let forecast = Forecast.getForecastForCity(city, forTime: cellDate, inRealm: realm) else {
             // TODO: This is poor handling, it should only show cells we have a forecast for, but time restrictions...
-            cell.timeLabel.text = "--:--"
             cell.windSpeedLabel.text = "-.- mph"
             cell.windDirectionView.hidden = true
             return cell
