@@ -38,16 +38,12 @@ class WeatherDetailsViewController : BaseVC {
         todayForecastDataSource = TodayForecastDataSource(city: city, realm:self.realm)
         dailyOverviewDataSource = DailyOverviewDataSource(city: city, realm:self.realm)
         
-        realmToken = self.realm.objects(City.self).filter("lastForecast = %@", city.lastForecast).addNotificationBlock { results, error in
-            print("City has been updated, refreshing UI")
-            
-        }
-        
-        city.updateForecasts { success, error in
-            print("FORECAST UPDATE: \(success)")
-        }
-        
         super.init()
+        
+        realmToken = self.realm.objects(City.self).filter("lastForecast = %@", city.lastForecast).addNotificationBlock { results, error in
+            self.updatePage()
+        }
+        city.updateForecasts { _, _ in }
     }
 
     required init() {
@@ -74,7 +70,7 @@ class WeatherDetailsViewController : BaseVC {
     }
     
     override func viewWillAppear(animated: Bool) {
-        updateTimer = NSTimer(timeInterval: 5, target: self, selector: "updatePage", userInfo: nil, repeats: true)
+        updateTimer = NSTimer(timeInterval: 5, target: self, selector: #selector(WeatherDetailsViewController.updatePage), userInfo: nil, repeats: true)
         NSRunLoop.mainRunLoop().addTimer(updateTimer!, forMode: NSRunLoopCommonModes)
     }
     

@@ -132,25 +132,26 @@ class WeatherCardTableViewCell : BaseTableViewCell {
     
     // MARK: Update Cell
     
-    func updateWithCity(city:City, forecast:Forecast) {
+    func updateWithCity(city:City, forecast:Forecast?) {
         /** TODO: I have considered making this implementation and have it in a protocol, I have
          two views in the app that do this exact setup. It's a pretty bad case of DRY. However,
          time restrictions are in place. */
         self.city = city
+        cityLabel.text = city.name
+        backgroundImageView.kf_setImageWithURL(NSURL(string: city.imageUrl)!, placeholderImage: kCityPlaceholderImage)
+        
+        guard let forecast = forecast else { return }
+        
         self.forecast = forecast
         
         let windDirection = Double(forecast.windDirection)
         let windSpeed = Double(forecast.windSpeed)
-        
-        cityLabel.text = city.name
         
         windSpeedLabel.text = String(format: "%.1f mph", windSpeed)
         windStrengthLabel.text = windDescriptionFromSpeed(windSpeed)
         
         windDirectionLabel.text = cardinalDirectionFromDegrees(windDirection)
         windDirectionView.setWindDirection(windDirection)
-        
-        backgroundImageView.kf_setImageWithURL(NSURL(string: city.imageUrl)!, placeholderImage: kCityPlaceholderImage)
         
         animatedTurbineView.applyRotationAnimation(100.0/windSpeed)
     }

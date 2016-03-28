@@ -41,12 +41,7 @@ import Kingfisher
     
     private func updateOutdatedForecasts() {
         cityList.forEach { city in
-            let lastUpdate = city.lastForecast.timeIntervalSince1970
-            let now = NSDate().timeIntervalSince1970
-            
-            if lastUpdate < now - kForecastIntervalSeconds {
-                city.updateForecasts {_,_ in}
-            }
+            city.updateForecasts {_,_ in}
         }
     }
     
@@ -63,7 +58,7 @@ import Kingfisher
         let activeForecast = Forecast.getForecastForCity(city, forTime: NSDate(), inRealm: realm)
         let nextForecast = Forecast.getNextForecastForCity(city, realm: realm)
         
-        cell.updateWithCity(city, forecast: activeForecast ?? nextForecast!)
+        cell.updateWithCity(city, forecast: activeForecast ?? nextForecast)
         return cell
     }
     

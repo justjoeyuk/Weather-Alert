@@ -33,9 +33,9 @@ class HomeViewController : BaseVC {
         weatherCardTable.reloadData()
         
         navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage.Asset.ListIcon.image, style: .Plain, target: self, action: "modifyCities")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage.Asset.ListIcon.image, style: .Plain, target: self, action: #selector(HomeViewController.modifyCities))
         
-        homeView.addCityButton.addTarget(self, action: "addCity", forControlEvents: .TouchUpInside)
+        homeView.addCityButton.addTarget(self, action: #selector(HomeViewController.addCity), forControlEvents: .TouchUpInside)
     }
     
     func modifyCities() {

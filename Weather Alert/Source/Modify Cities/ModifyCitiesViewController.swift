@@ -35,7 +35,7 @@ class ModifyCitiesViewController : BaseVC {
         modifyView.tableView.registerClass(ModifyCityCell.self, forCellReuseIdentifier: kModificationCellIdentifier)
         modifyView.tableView.dataSource = datasource
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "completeModify")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(ModifyCitiesViewController.completeModify))
         modifyView.tableView.setEditing(true, animated: true)
     }
     
