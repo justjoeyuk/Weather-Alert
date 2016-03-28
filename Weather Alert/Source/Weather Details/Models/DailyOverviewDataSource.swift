@@ -15,13 +15,14 @@ import RealmSwift
     let calendar = NSCalendar.currentCalendar()
     let dateFormatter = NSDateFormatter()
     
-    let realm:Realm
+    weak var realm:Realm?
     weak var city:City?
     
     
-    init(city:City) {
-        do { self.realm = try Realm() } catch { fatalError("Could not create Realm \(error)") }
+    init(city:City, realm:Realm) {
+        self.realm = realm
         self.city = city
+        
         super.init()
     }
     
@@ -30,10 +31,8 @@ import RealmSwift
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("DailyOverviewCell") as! DailyOverviewTableViewCell
-        guard let city = city else {
-            print("*** ERROR: Could not use city for daily overview ***")
-            return cell
-        }
+        
+        guard let city = city, let realm = realm else { return cell }
         
         let today = NSDate()
         dayComponent.day = indexPath.row + 1
@@ -42,7 +41,7 @@ import RealmSwift
         let dateForCell = calendar.dateByAddingComponents(dayComponent, toDate:today , options: NSCalendarOptions(rawValue:0))
         cell.dayLabel.text = dateFormatter.stringFromDate(dateForCell!)
         
-        guard let forecast = Forecast.getForecastForCity(city, forTime: dateForCell!, inRealm: self.realm) else { return cell }
+        guard let forecast = Forecast.getForecastForCity(city, forTime: dateForCell!, inRealm: realm) else { return cell }
         cell.updateWithForecast(forecast)
         
         return cell

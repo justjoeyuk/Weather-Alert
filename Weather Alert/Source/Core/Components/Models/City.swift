@@ -46,6 +46,11 @@ class City : Object, Mappable {
      Removes old forecasts and downloads a new 5 day forecast for the city
     */
     func updateForecasts(callback:BasicCallback) {
+        removeOldForecasts()
+        WeatherAPIManager.gatherFiveDayForecastWithCity(self, callback: callback)
+    }
+    
+    func removeOldForecasts(since:NSDate = NSDate()) {
         do {
             let realm = try Realm()
             
@@ -58,8 +63,6 @@ class City : Object, Mappable {
         catch {
             print("*** ERROR \(error) ***")
         }
-        
-        WeatherAPIManager.gatherFiveDayForecastWithCity(self, callback: callback)
     }
     
     func mapping(map: Map) {

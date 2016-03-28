@@ -26,16 +26,27 @@ import Kingfisher
         
         super.init()
         
-        cityList.forEach { city in
-            city.updateForecasts { success, error in
-                print("Updated City \(city)")
-            }
-        }
+        self.subscribeToCityChanges()
+        self.updateOutdatedForecasts()
+    }
+    
+    private func subscribeToCityChanges() {
         self.token = cityList.addNotificationBlock { results, error in
             guard let results = results else { return }
             self.cityList = results
             
-            self.tableView?.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Automatic)
+            self.tableView?.reloadData()
+        }
+    }
+    
+    private func updateOutdatedForecasts() {
+        cityList.forEach { city in
+            let lastUpdate = city.lastForecast.timeIntervalSince1970
+            let now = NSDate().timeIntervalSince1970
+            
+            if lastUpdate < now - kForecastIntervalSeconds {
+                city.updateForecasts {_,_ in}
+            }
         }
     }
     
