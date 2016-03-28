@@ -40,10 +40,10 @@ import RealmSwift
         dateFormatter.dateFormat = "EEEE' 'dd"
         
         let dateForCell = calendar.dateByAddingComponents(dayComponent, toDate:today , options: NSCalendarOptions(rawValue:0))
-        
-        let forecast = Forecast.getForecastForCity(city, forTime: dateForCell!, inRealm: self.realm)
-        cell.updateWithForecast(forecast!)
         cell.dayLabel.text = dateFormatter.stringFromDate(dateForCell!)
+        
+        guard let forecast = Forecast.getForecastForCity(city, forTime: dateForCell!, inRealm: self.realm) else { return cell }
+        cell.updateWithForecast(forecast)
         
         return cell
     }

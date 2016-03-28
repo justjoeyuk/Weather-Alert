@@ -49,7 +49,10 @@ class City : Object, Mappable {
         do {
             let realm = try Realm()
             
-            let cities = realm.objects(Forecast.self).filter("time < %d", NSDate().timeIntervalSince1970)
+            let forecastsPerDay = Double(24 / kForecastIntervalHours)
+            let minimumForecastDate = NSDate().timeIntervalSince1970 - (kForecastIntervalSeconds * forecastsPerDay)
+            
+            let cities = realm.objects(Forecast.self).filter("time < %d", minimumForecastDate)
             try realm.write { realm.delete(cities) }
         }
         catch {
