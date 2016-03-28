@@ -37,6 +37,7 @@ import RealmSwift
         let cellDate = roundDateToForecastIndex(NSDate(), index: indexPath.row)
         let timeText = String(format: "%02d:00", cellHour)
         
+        cell.timeLabel.text = timeText
         cell.backgroundColor = indexPath.row == forecastIndexForDate() ? UIColor.blackColor() : UIColor.darkBackgroundColor()
         
         guard let forecast = Forecast.getForecastForCity(city, forTime: cellDate, inRealm: realm) else {
@@ -48,7 +49,6 @@ import RealmSwift
         }
         
         // TODO: Extract into cells update method
-        cell.timeLabel.text = timeText
         cell.windSpeedLabel.text = String(format: "%.1f mph", forecast.windSpeed)
         
         cell.windDirectionView.hidden = false
