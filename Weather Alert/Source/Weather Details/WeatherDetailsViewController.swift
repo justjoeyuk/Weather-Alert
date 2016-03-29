@@ -132,10 +132,7 @@ class WeatherDetailsViewController : BaseVC {
     func updateCity() {
         // TODO: This should not be getting the "next" forecast. It's done this way
         // because as of now, we don't have the actual forecast for right now
-        guard let forecast = Forecast.getNextForecastForCity(city, realm: realm) else {
-            print("*** ERROR: Failed to get Forecast for \(city.name) ***")
-            return
-        }
+        let forecast = Forecast.getNextForecastForCity(city, realm: realm)
         
         self.detailView.updateWithCity(city, withForecast: forecast)
     }

@@ -52,23 +52,23 @@ class WeatherDetailsView : BaseView {
         addSubview(dailyOverviewTableView)
     }
     
-    func updateWithCity(city:City, withForecast forecast:Forecast) {
+    func updateWithCity(city:City, withForecast forecast:Forecast?) {
         /** TODO: I have considered making this implementation and have it in a protocol, I have 
             two views in the app that do this exact setup. It's a pretty bad case of DRY. However, 
             time restrictions are in place. */
         
+        headerView.cityNameLabel.text = city.name
+        headerView.backgroundImageView.kf_setImageWithURL(NSURL(string: city.imageUrl)!, placeholderImage: kCityPlaceholderImage)
+        
+        guard let forecast = forecast else { return }
         let windDirection = Double(forecast.windDirection)
         let windSpeed = Double(forecast.windSpeed)
-        
-        headerView.cityNameLabel.text = city.name
         
         headerView.windSpeedLabel.text = String(format: "%.1f mph", windSpeed)
         headerView.windStrengthLabel.text = windDescriptionFromSpeed(windSpeed)
         
         headerView.windDirectionView.setWindDirection(windDirection)
         headerView.windDirectionLabel.text = cardinalDirectionFromDegrees(windDirection)
-        
-        headerView.backgroundImageView.kf_setImageWithURL(NSURL(string: city.imageUrl)!, placeholderImage: kCityPlaceholderImage)
         
         headerView.animatedTurbineView.applyRotationAnimation(100.0/windSpeed)
     }
