@@ -1,3 +1,8 @@
+### Limitations
+
+- Minimum iOS Version: 8.1
+- XCode 7.3 (Swift Compiler 2.2)
+
 ### Installation
 
 Install Carthage ( https://github.com/Carthage/Carthage )
@@ -19,11 +24,6 @@ If you need to use an old version of CocoaPods after using this application, run
 ### Known Issues
 
 Visit the "Issues" tab to see issues I am aware of an I am currently working to fix.
-
-
-### Limitations
-
-- Minimum iOS Version: 8.1
 
 
 ### Report
