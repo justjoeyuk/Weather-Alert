@@ -46,10 +46,15 @@ class City : Object, Mappable {
      Removes old forecasts and downloads a new 5 day forecast for the city
     */
     func updateForecasts(callback:BasicCallback) {
-        let lastUpdate = self.lastForecast.timeIntervalSince1970
+        var lastUpdate = self.lastForecast.timeIntervalSince1970
         let now = NSDate().timeIntervalSince1970
         
-        if lastUpdate < now - kForecastIntervalSeconds {
+        // Apply a fix for any last updates that were performed in the future
+        if (lastUpdate > now) {
+            lastUpdate = now - Double(kForecastIntervalHours)
+        }
+        
+        if lastUpdate <= now - kForecastIntervalSeconds {
             removeOldForecasts()
             WeatherAPIManager.gatherFiveDayForecastWithCity(self, callback: callback)
         }
